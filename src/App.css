@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.header {
+  height: 100vh;
+  background-color: var(--color-primary);
+}
+
+#about {
+  height: 110vh;
+  background-color: white;
+}
+
+#projects {
+  height: 110vh;
+  background-color: #F5F5F5;
+}
+
+#contact {
+  height: 110vh;
+  background-color: var(--color-tertiary);
+}

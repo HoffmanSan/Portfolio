@@ -1,0 +1,11 @@
+:root {
+  --color-primary: #070F2B;
+  --color-secondary: #1B1A55;
+  --color-tertiary: #535C91;
+  --color-quaternary: #9290C3;
+  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

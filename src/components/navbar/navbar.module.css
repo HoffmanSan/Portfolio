@@ -1,0 +1,35 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  height: 5vh;
+  width: 100%;
+  background-color: var(--color-secondary);
+  border-bottom: 2px solid aqua;
+}
+
+ul {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0 15%;
+}
+
+a {
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: white;
+  transition: all 500ms;
+  padding: 0 15px;
+}
+
+a:hover {
+  background-color: var(--color-primary);
+}
+
+.active {
+  color: red;
+}
