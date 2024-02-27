@@ -8,7 +8,7 @@ type LinkProps = {
 export default function Link({ to, content }: LinkProps) {
 
   const active = {
-    color: 'red'
+    backgroundColor: '#04C2C9'
   }
 
   return (
@@ -17,7 +17,7 @@ export default function Link({ to, content }: LinkProps) {
       to={to}
       spy={true}
       smooth={true}
-      duration={1000}
+      duration={750}
     >
       {content}
     </ScrollLink>

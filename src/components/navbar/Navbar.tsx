@@ -1,16 +1,16 @@
-import styles from './navbar.module.css'
+import './navbar.css'
 import Link from '../link/Link'
 
 
 export default function Navbar() {
 
   return (
-    <nav className={styles.navbar}>
+    <nav className='navbar'>
       <ul>
-        <Link to='home' content="home"/>
-        <Link to='about' content="about"/>
-        <Link to='projects' content="portfolio"/>
-        <Link to='contact' content="contact"/>
+        <li><Link to='home' content="home"/></li>
+        <li><Link to='about' content="about"/></li>
+        <li><Link to='projects' content="portfolio"/></li>
+        <li><Link to='contact' content="contact"/></li>
       </ul>
     </nav>
   )

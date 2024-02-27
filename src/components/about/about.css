@@ -1,0 +1,97 @@
+@import "../../assets/animations.css";
+
+#about {
+  z-index: 3;
+  position: relative;
+  width: 100%;
+  margin-top: -50px;
+}
+
+.about-content {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.personal-info > .hexagon {
+  height: 25em;
+  width: 25em;
+  margin: 20px 0;
+  float: left;
+}
+
+.profile-image {
+  height: 25em;
+}
+
+.hexagon-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.hexagon-column {
+  margin: 20px 0;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hexagon-column p {
+  text-align: center;
+}
+
+/* LOGOS */
+
+/* seo */
+.seo-logo {
+  animation: shrink-and-grow 3000ms ease-in-out infinite;
+}
+
+/* dynamic */
+.gear-logo {
+  animation: spin 3000ms infinite;
+}
+
+/* rwd */
+.mobile-carousel {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(3, 150px);
+}
+
+.mobile-carousel svg {
+  animation: carousel-horizontal 6000ms infinite;
+}
+
+.mobile-carousel svg:nth-child(1) {
+  width: 2rem;
+}
+
+.mobile-carousel svg:nth-child(2) {
+  width: 3.5rem;
+}
+
+.mobile-carousel svg:nth-child(3) {
+  width: 5rem;
+}
+
+/* aria */
+.aria-carousel {
+  display: grid;
+  place-items: center;
+  grid-template-rows: repeat(2, 150px);
+  overflow: hidden;
+  transform: translateY(-75px);
+}
+
+.aria-carousel svg {
+  animation: carousel-vertical 4000ms infinite;
+}
+
+@media (max-width: 600px) {
+  .hexagon-row {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+}

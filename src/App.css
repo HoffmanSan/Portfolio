@@ -8,22 +8,16 @@
   font-style: normal;
 }
 
-.header {
-  height: 100vh;
-  background-color: var(--color-primary);
-}
-
 #about {
-  height: 110vh;
   background-color: white;
 }
 
 #projects {
-  height: 110vh;
+  height: 100vh;
   background-color: #F5F5F5;
 }
 
 #contact {
-  height: 110vh;
+  height: 100vh;
   background-color: var(--color-tertiary);
 }

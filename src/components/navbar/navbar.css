@@ -1,10 +1,11 @@
 .navbar {
   position: sticky;
+  z-index: 4;
   top: 0;
-  height: 5vh;
+  height: 5%;
   width: 100%;
   background-color: var(--color-secondary);
-  border-bottom: 2px solid aqua;
+  border-bottom: 2px solid #04C2C9;
 }
 
 ul {
@@ -15,21 +16,25 @@ ul {
   padding: 0 15%;
 }
 
-a {
+li {
   display: grid;
   place-items: center;
-  padding: 10px;
   cursor: pointer;
+}
+
+a {
   font-size: 1.25rem;
   color: white;
   transition: all 500ms;
-  padding: 0 15px;
+  padding: 15px 15px;
 }
 
-a:hover {
+li:hover {
   background-color: var(--color-primary);
 }
 
-.active {
-  color: red;
+@media (max-width: 600px) {
+  a {
+    font-size: 0.75rem;
+  }
 }

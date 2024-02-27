@@ -1,31 +1,43 @@
 .header {
+  display: grid;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--color-primary);
+  overflow-x: hidden;
+}
+
+.header-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--color-primary);
+  z-index: 3;
+  margin: 0 auto;
+  padding: 25px;
+  border-radius: 50px;
+  transition: all 0.5s;
+  box-shadow: 0 0 40px aqua;
 }
 
-h1 {
-  color: white;
-  font-size: 3rem;
-  font-family: "Roboto Mono", monospace;
+.header-content > h1 {
+  z-index: 5;
+  background-color: var(--color-primary);
 }
 
 span {
-  color: aqua;
+  color: #04C2C9;
   font-family: "Roboto Mono", monospace;
 }
 
-.profession {
-  color: white;
-}
-
-.header > a {
+.header-content > a {
   margin-top: 20px;
   padding: 12px 25px;
-  border: 2px solid white;
+  border: 2px solid #04C2C9;
+  z-index: 5;
+  background-color: var(--color-primary);
 }
 
-.header > a:hover {
-  color: red;
+.header-content > a:hover {
+  background-color: #04C2C9;
 }

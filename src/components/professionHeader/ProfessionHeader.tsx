@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react"
 
+import "./professionHeader.css"
+
 export default function ProfessionHeader() {
-  const [content, setContent] = useState<any>("React Web Developer")
+  const [content, setContent] = useState<string>("React Web Developer")
+  const [isIterating, setIsIterating] = useState(false)
 
   // const letters = "abcdefghijklmnopqrstuvwxyz"
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -9,19 +12,26 @@ export default function ProfessionHeader() {
 
   const stringHackerEffect = () => {
     let iterations = 0;
+    setIsIterating(true)
 
-    const interval = setInterval(() => {
-      setContent(content.split("").map((_: string, index: number) => {
-        if (index < iterations) {
-          return myProfession[index]
+    if (!isIterating) {
+      const interval = setInterval(() => {
+        setContent(content.split("").map((_: string, index: number) => {
+
+          if (index < iterations) {
+            return myProfession[index]
+          }
+            return letters[Math.floor(Math.random() * 26)]
+
+        }).join(""));
+
+        if (iterations >= myProfession.length) {
+          setIsIterating(false)
+          clearInterval(interval);
         }
-         return letters[Math.floor(Math.random() * 26)]
-      }).join(""));
-
-      if (iterations >= myProfession.length) clearInterval(interval);
-
-      iterations += 1 / 4;
-    }, 25)
+        iterations += 1 / 4;
+      }, 25)
+    }
   }
 
   useEffect(() => {
@@ -29,11 +39,11 @@ export default function ProfessionHeader() {
   }, [])
 
   return (
-    <h1 >
+    <h2 className="profession">
       I'm a 
-      <span className="profession" onMouseEnter={stringHackerEffect}>
+      <span onMouseEnter={stringHackerEffect}>
         {' ' + content}
       </span>
-    </h1>
+    </h2>
   )
 }

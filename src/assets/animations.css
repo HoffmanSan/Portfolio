@@ -1,0 +1,51 @@
+@keyframes shrink-and-grow {
+  25% {
+    scale: 60%;
+  }
+
+  50% {
+    scale: 100%;
+  }
+
+  75% {
+    scale: 140%;
+  }
+}
+
+@keyframes spin {
+  50% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes carousel-horizontal {
+  25% {
+    transform: translateX(-150px);
+  }
+
+  50% {
+    transform: translateX(0px);
+  }
+
+  75% {
+    transform: translateX(150px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes carousel-vertical {
+  50% {
+    transform: translateY(150px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}

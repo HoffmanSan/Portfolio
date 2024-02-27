@@ -9,3 +9,52 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  overflow-x: hidden;
+}
+
+h1 {
+  color: white;
+  font-size: 4.5rem;
+  font-family: "Roboto Mono", monospace;
+}
+
+h2 {
+  color: white;
+  font-size: 2.5rem;
+}
+
+h3 {
+  margin: 0 auto;
+  margin-top: 50px;
+  width: fit-content;
+  color: #444649;
+  font-size: 2rem;
+}
+
+h4 {
+  margin: 5px 0;
+  width: fit-content;
+  color: #616161;
+  font-size: 1.5rem;
+}
+
+a {
+  cursor: pointer;
+}
+
+svg {
+  width: 4rem;
+}
+
+p {
+  letter-spacing: .1rem;
+  line-break: strict;
+}
+
+@media (max-width: 600px) {
+  svg {
+    width: 4rem;
+  }
+}

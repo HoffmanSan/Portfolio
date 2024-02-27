@@ -2,15 +2,18 @@ import Link from '../link/Link'
 
 import './header.css'
 import ProfessionHeader from '../professionHeader/ProfessionHeader'
+import HeaderBackground from '../headerBackground/HeaderBackground'
 
 export default function Header() {
 
   return (
-    <div id='home' className='header'>
-      <h1>Hello</h1>
-      <h1>My name is <span>MACIEJ GORTYCH</span></h1>
-      <ProfessionHeader />
-      <Link to="about" content="About me" />
-    </div>
+    <header id='home' className='header'>
+      <HeaderBackground />
+      <div className='header-content'>
+        <h1>Hey, I'm <span>Maciek</span></h1>
+        <ProfessionHeader />
+        <Link to="about" content="About me" />
+      </div>
+    </header>
   )
 }

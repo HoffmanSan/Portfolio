@@ -1,0 +1,27 @@
+@import "../../assets/animations.css";
+
+.header-background {
+  position: absolute;
+  top: 0;
+	left: 0;
+}
+
+.icon-row {
+  z-index: 3;
+  display: flex;
+}
+
+.header-background svg {
+  color: var(--color-secondary);
+  font-size: 3em;
+  z-index: 3;
+  transition: all 1s;
+  opacity: 0.5;
+}
+
+.header-background svg:hover {
+  color: #04C2C9;
+  filter: drop-shadow(2px 2px 4px #04C2C9);
+  opacity: 1;
+  transition: 0s;
+}
