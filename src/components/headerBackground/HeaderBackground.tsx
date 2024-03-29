@@ -15,9 +15,6 @@ export default function HeaderBackground() {
   let rowsByHeight = window.screen.height / 48
   let iconsByWidth = window.screen.width / 64
 
-  console.log(`${Math.random() * 500} ms`)
-  console.log()
-
   return (
     <div className="header-background">
 

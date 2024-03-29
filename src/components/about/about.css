@@ -4,24 +4,35 @@
   z-index: 3;
   position: relative;
   width: 100%;
-  margin-top: -50px;
+  padding: 4em 0;
 }
 
 .about-content {
   width: 70%;
-  margin: 0 auto;
-  padding-top: 40px;
+  margin: 5px auto;
+}
+
+.personal-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
 }
 
 .personal-info > .hexagon {
-  height: 25em;
-  width: 25em;
+  height: 23em;
+  width: 23em;
   margin: 20px 0;
-  float: left;
 }
 
-.profile-image {
-  height: 25em;
+.personal-info p {
+  text-align: center;
+}
+
+.personal-info img {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
 }
 
 .hexagon-row {

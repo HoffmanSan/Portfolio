@@ -18,6 +18,7 @@ export default function Link({ to, content }: LinkProps) {
       spy={true}
       smooth={true}
       duration={750}
+      offset={-30}
     >
       {content}
     </ScrollLink>

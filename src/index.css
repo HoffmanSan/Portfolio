@@ -3,6 +3,9 @@
   --color-secondary: #1B1A55;
   --color-tertiary: #535C91;
   --color-quaternary: #9290C3;
+  --s: 100px;  /* size  */
+  --m: 4px;    /* margin */
+  --f: calc(1.732 * var(--s) + 4 * var(--m)  - 1px);
   
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -10,8 +13,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  overflow-x: hidden;
+ body, html {
+  overflow-x: clip;
 }
 
 h1 {
@@ -27,7 +30,6 @@ h2 {
 
 h3 {
   margin: 0 auto;
-  margin-top: 50px;
   width: fit-content;
   color: #444649;
   font-size: 2rem;
@@ -53,8 +55,4 @@ p {
   line-break: strict;
 }
 
-@media (max-width: 600px) {
-  svg {
-    width: 4rem;
-  }
-}
+

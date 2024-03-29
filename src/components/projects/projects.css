@@ -1,0 +1,41 @@
+#projects {
+  width: 100%;
+  padding: 4em 0;
+}
+
+.projects-content {
+  width: 70%;
+  margin: 5px auto;
+}
+
+.projects-nav {
+  display: flex;
+  justify-content: center;
+  gap: 5em;
+  padding: 2em 0;
+}
+
+.projects-nav button {
+  padding: 1em;
+  border: none;
+  border-bottom: 2px solid #04C2C9;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.15em;
+  transition: all 200ms ease-in;
+}
+
+.projects-nav button:hover, .projects-nav .active {
+  background-color: #04C2C9;
+  color: white;
+}
+
+
+.cards-container {
+  padding: 2em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}

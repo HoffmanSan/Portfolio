@@ -2,13 +2,14 @@
   position: sticky;
   z-index: 4;
   top: 0;
+  left: 0;
   height: 5%;
-  width: 100%;
+  width: 100vw;
   background-color: var(--color-secondary);
   border-bottom: 2px solid #04C2C9;
 }
 
-ul {
+.navbar ul {
   height: 100%;
   display: flex;
   justify-content: flex-start;
@@ -16,25 +17,25 @@ ul {
   padding: 0 15%;
 }
 
-li {
+.navbar li {
   display: grid;
   place-items: center;
   cursor: pointer;
 }
 
-a {
+.navbar a {
   font-size: 1.25rem;
   color: white;
   transition: all 500ms;
   padding: 15px 15px;
 }
 
-li:hover {
+.navbar li:hover {
   background-color: var(--color-primary);
 }
 
 @media (max-width: 600px) {
-  a {
+  .navbar a {
     font-size: 0.75rem;
   }
 }
