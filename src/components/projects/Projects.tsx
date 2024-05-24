@@ -6,12 +6,12 @@ const SOLO_PROJECTS = [
   {
     title: "Sklepico",
     description: "An e-commerce application for a goods-distribution enterprise. Includes admin panel allowing to add/edit products and categories. Built with MERN stack - contains custom user authentication functionality and payment options.",
-    technologies: ['React', 'Node', 'Express', 'Tailwind', 'MongoDB', 'Stripe']
+    technologies: ['React', 'Node', 'MongoDB', 'Express', 'Tailwind', 'Stripe']
   },
   {
     title: "Underhill Hall",
     description: "Web application for an event hosting enterprise. Includes seat booking functionality and payment options such as credit card, GooglePay and BLIK.",
-    technologies: ['React', 'Node', 'Express', 'SASS', 'Firebase', 'Stripe', 'EmailJS']
+    technologies: ['React', 'Node', 'Firebase', 'Express', 'SASS', 'Stripe', 'EmailJS']
   }
 ]
 const SHARED_PROJECTS = [
