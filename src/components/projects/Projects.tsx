@@ -1,61 +1,72 @@
 import "./projects.css"
 import Card from "../card/Card"
 import { useState } from "react"
+import { m } from 'framer-motion'
 
-const SOLO_PROJECTS = [
+const PROJECTS = [
   {
     title: "Sklepico",
+    category: "solo",
     description: "An e-commerce application for a goods-distribution enterprise. Includes admin panel allowing to add/edit products and categories. Built with MERN stack - contains custom user authentication functionality and payment options.",
     technologies: ['React', 'Node', 'MongoDB', 'Express', 'Tailwind', 'Stripe']
   },
   {
     title: "Underhill Hall",
+    category: "solo",
     description: "Web application for an event hosting enterprise. Includes seat booking functionality and payment options such as credit card, GooglePay and BLIK.",
     technologies: ['React', 'Node', 'Firebase', 'Express', 'SASS', 'Stripe', 'EmailJS']
-  }
-]
-const SHARED_PROJECTS = [
+  },
   {
-    title: "Finance Tracker",
-    description: "Simple application for financial expenses monitoring. User authentication and data storage with Firebase.",
-    technologies: ['React', 'Firebase']
+    title: "HealThyBody",
+    category: "shared",
+    description: "An application for monitoring calore intake for weight maintaining",
+    technologies: ['React', 'Node', 'PostgreSQL']
   }
 ]
 
-export default function Projects() {
+export default function Projects(){
   const [category, setCategory] = useState('all')
+  const [filteredProjects, setFilteredProjects] = useState(PROJECTS);
 
   return (
-    <div id="projects">
+    <section id="projects" >
       <div className="projects-content">
 
-        <h3>MY PROJECTS</h3>
+        <h3>PROJECTS</h3>
 
         <div className="projects-nav">
-          <button onClick={() => setCategory('all')} className={`${category === 'all' && 'active'}`}>all</button>
-          <button onClick={() => setCategory('solo')} className={`${category === 'solo' && 'active'}`}>solo</button>
-          <button onClick={() => setCategory('shared')} className={`${category === 'shared' && 'active'}`}>shared</button>
+
+          <button
+            onClick={() => {setCategory('all'); setFilteredProjects(PROJECTS)}} 
+            className={`${category === 'all' && 'active'}`}
+          >
+            all
+          </button>
+
+          <button
+            onClick={() => {setCategory('shared'); setFilteredProjects(PROJECTS.filter(item => item.category === 'shared'))}}
+            className={`${category === 'shared' && 'active'}`}
+          >
+            shared
+          </button>
+
+          <button 
+            onClick={() => {setCategory('solo'); setFilteredProjects(PROJECTS.filter(item => item.category === 'solo'))}} 
+            className={`${category === 'solo' && 'active'}`}
+          >
+            solo
+          </button>
+
         </div>
 
-        <div className="cards-container">
-          {category === 'all' && (
-            SOLO_PROJECTS.concat(SHARED_PROJECTS).map(item => (
-              <Card project={item}/>
-            ))
-          )}
-          {category === 'solo' && (
-            SOLO_PROJECTS.map(item => (
-              <Card project={item}/>
-            ))
-          )}
-          {category === 'shared' && (
-            SHARED_PROJECTS.map(item => (
-              <Card project={item}/>
-            ))
-          )}
-        </div>
+        <m.div layout className="cards-container">
+          {filteredProjects.map(item => (
+            <Card project={item} key={item.title}/>
+          ))}
+        </m.div>
 
       </div>
-    </div>
+
+    </section>
   )
 }

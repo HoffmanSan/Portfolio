@@ -21,6 +21,10 @@
   box-shadow: 0 0 40px aqua;
 }
 
+.header-content h1, .header-content p, .header-content span {
+  font-weight: bold;
+}
+
 .header-content > h1 {
   z-index: 5;
   background-color: var(--color-primary);
@@ -37,6 +41,7 @@ span {
   font-size: 1.25rem;
   border: 2px solid #04C2C9;
   transition: all 500ms;
+  cursor: pointer;
   z-index: 5;
   color: white;
   background-color: var(--color-primary);

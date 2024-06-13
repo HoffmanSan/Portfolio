@@ -4,7 +4,7 @@
   z-index: 3;
   position: relative;
   width: 100%;
-  padding: 4em 0;
+  padding-top: 4em;
 }
 
 .about-content {
@@ -20,13 +20,14 @@
 }
 
 .personal-info > .hexagon {
-  height: 23em;
-  width: 23em;
-  margin: 20px 0;
+  height: 22em;
+  width: 22em;
+  margin: 10px 0;
 }
 
 .personal-info p {
   text-align: center;
+  font-size: 1.1em;
 }
 
 .personal-info img {
@@ -37,11 +38,11 @@
 
 .hexagon-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .hexagon-column {
-  margin: 20px 0;
+  margin: 20px 5px;
   padding: 0 20px;
   display: flex;
   flex-direction: column;
@@ -56,10 +57,10 @@
 
 /* seo */
 .seo-logo {
-  animation: shrink-and-grow 3000ms ease-in-out infinite;
+  animation: shrink-and-grow 3000ms infinite;
 }
 
-/* dynamic */
+/* functional */
 .gear-logo {
   animation: spin 3000ms infinite;
 }
@@ -101,6 +102,11 @@
 }
 
 @media (max-width: 600px) {
+
+  .about-content {
+    display: none;
+  }
+  
   .hexagon-row {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);

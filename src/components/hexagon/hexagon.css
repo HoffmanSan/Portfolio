@@ -2,10 +2,28 @@
   height: 10rem;
   width: 10rem;
   background: #04C2C9;
-  /* -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%); */
+  -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
   clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  transition: all 400ms;
+}
+
+.hexagon::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(180deg, rgba(3, 151, 156, 0.505) 65%, rgba(27, 26, 85, 1) 80%);
+  z-index: -1;
+  transition: all 400ms;
+  opacity: 0;
+}
+
+.hexagon:hover::before {
+  opacity: 1;
 }

@@ -3,9 +3,10 @@ import { Link as ScrollLink } from "react-scroll";
 type LinkProps = {
   to: string
   content: string
+  offset?: number
 }
 
-export default function Link({ to, content }: LinkProps) {
+export default function Link({ to, content, offset }: LinkProps) {
 
   const active = {
     backgroundColor: '#04C2C9'
@@ -18,7 +19,7 @@ export default function Link({ to, content }: LinkProps) {
       spy={true}
       smooth={true}
       duration={750}
-      offset={-30}
+      offset={offset || -30}
     >
       {content}
     </ScrollLink>

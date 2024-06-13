@@ -1,23 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=REM&display=swap');
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Roboto Mono", monospace;
+  font-family: "REM", sans-serif;
   font-optical-sizing: auto;
+  font-weight: 400;
   font-style: normal;
 }
 
 #about {
+  height: 95vh;
   background-color: white;
 }
 
 #projects {
-  height: 100vh;
+  min-height: 95vh;
   background-color: #F5F5F5;
 }
 
 #contact {
-  height: 100vh;
+  height: 79vh;
   background-color: var(--color-tertiary);
 }

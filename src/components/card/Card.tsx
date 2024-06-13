@@ -1,29 +1,33 @@
 import "./card.css"
+import { m } from 'framer-motion'
 
 type CardProps = {
   project: {
-    title: string,
+    title: string
+    description: string
     technologies: string[]
   }
 }
 
 export default function Card({project}: CardProps) {
-  const essentialTech = project.technologies.slice(0, 3);
 
   return (
-    <div className="card" style={{ backgroundImage: `url("/src/assets/${project.title}.png")` }}>
-        <div className="card-details">
-          <h2>{project.title}</h2>
-          <ul>
-            {essentialTech.map(item => (
-              <li key={item}>
-                {item}
-                {essentialTech.indexOf(item) !== essentialTech.length - 1 && ' / '}
-              </li>
-            ))}
-          </ul>
+    <m.div
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      layout
+      className="card"
+    >
+      <img src={`/src/assets/${project.title}.png`} alt={project.title}/>
+      <div className="card-details">
+        <h2>{project.title}</h2>
+        <p>{project.description}</p>
+        <div className="buttons-container">
+          <button onClick={() => alert('Kliknieto')}>Learn more</button>
+          <button>Visit website</button>
         </div>
-        <button onClick={() => alert('Kliknieto')}>Learn more</button>
-    </div>
+      </div>
+    </m.div>
   )
 }
