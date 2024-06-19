@@ -2,10 +2,8 @@
   position: relative;
   overflow: hidden;
   border-radius: 1rem;
-  min-width: 250px;
-  max-width: 49%;
-  flex-grow: 1;
-  height: 30em;
+  height: 70vh;
+  width: 32%;
 
   & * {
     transition: all 400ms;
@@ -86,8 +84,14 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1600px) {
   .card {
-    max-width: 90%;
+    width: 49%;
+  }
+}
+
+@media (max-width: 800px) {
+  .card {
+    width: 90%;
   }
 }

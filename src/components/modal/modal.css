@@ -13,26 +13,81 @@
 
 .modal-content {
   position: relative;
+  padding: min(4em, 7vw, 7vh);
+  padding-top: 0;
   border-radius: 1rem;
-  margin: auto;
-  width: clamp(60%, 800px, 80%);
-  height: min(85%, 700px);
+  width: clamp(50%, 600px, 80%);
   background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+  & * {
+    transition: all 400ms;
+  }
 
-  & button {
-    position: absolute;
+  & .close-button {
     border-radius: 1rem;
-    right: 0;
-    margin: 15px;
+    margin-left: auto;
+    margin-right: calc(min(4em, 7vw, 7vh) * -1 + 4px);
     padding: 10px 15px;
     background-color: transparent;
     color: #04C2C9;
     transition: all 400ms;
   }
 
-  & button:hover {
+  & .close-button:hover {
     box-shadow: none;
     color: white;
     background-color: #04C2C9;
+  }
+
+  & p {
+    padding: 1em 0;
+    text-align: justify;
+  }
+
+  & h4 {
+    color: var(--color-quintenary);
+    text-align: center;
+  }
+
+  & .technologies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1em 0;
+
+    & a {
+      padding: 0.75em 1.25em;
+      margin: 0.25em;
+      text-decoration: none;
+      color: var(--color-quintenary);
+      border: 1px solid var(--color-quintenary);
+      border-radius: 0.5em;
+    }
+
+    & a:hover {
+      background-color: var(--color-quintenary);
+      color: white;
+    }
+  }
+
+  & .navigation {
+    padding-top: 1em;
+
+    & a {
+      text-decoration: none;
+      border: 2px solid var(--color-quintenary);
+      color: var(--color-quintenary);
+      padding: 0.75em 1.25em;
+      margin: 0 0.25em;
+    }
+
+    & a:hover {
+      background-color: var(--color-quintenary);
+      color: white;
+    }
   }
 }

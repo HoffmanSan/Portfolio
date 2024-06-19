@@ -3,6 +3,7 @@
   --color-secondary: #1B1A55;
   --color-tertiary: #535C91;
   --color-quaternary: #9290C3;
+  --color-quintenary: #04C2C9;
   --s: 100px;  /* size  */
   --m: 4px;    /* margin */
   --f: calc(1.732 * var(--s) + 4 * var(--m)  - 1px);

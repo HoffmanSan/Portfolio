@@ -1,14 +1,14 @@
 @keyframes shrink-and-grow {
-  25% {
-    scale: 60%;
+  0% {
+    scale: 0.5;
   }
 
   50% {
-    scale: 100%;
+    scale: 1.25;
   }
 
-  75% {
-    scale: 140%;
+  100% {
+    scale: 0.5
   }
 }
 
