@@ -11,7 +11,10 @@ export default function Header() {
       <div className='header-content'>
         <h1>Hey, I'm <span>Maciek</span></h1>
         <ProfessionHeader />
-        <Link to="about" content="About Me"/>
+        <div className='header-buttons-container'>
+          <Link to="about" content="About Me"/>
+          <Link to="projects" content="My Projects"/>
+        </div>
       </div>
     </header>
   )

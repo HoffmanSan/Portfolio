@@ -10,7 +10,7 @@
 }
 
 #about {
-  height: 95vh;
+  min-height: 95vh;
   background-color: white;
 }
 
@@ -20,6 +20,6 @@
 }
 
 #contact {
-  height: 79vh;
+  min-height: 79vh;
   background-color: var(--color-tertiary);
 }

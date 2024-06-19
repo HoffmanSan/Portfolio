@@ -1,5 +1,6 @@
 import "./projects.css"
 import Card from "../card/Card"
+import Modal from "../modal/Modal"
 import { useState } from "react"
 import { m } from 'framer-motion'
 
@@ -27,6 +28,7 @@ const PROJECTS = [
 export default function Projects(){
   const [category, setCategory] = useState('all')
   const [filteredProjects, setFilteredProjects] = useState(PROJECTS);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section id="projects" >
@@ -61,11 +63,13 @@ export default function Projects(){
 
         <m.div layout className="cards-container">
           {filteredProjects.map(item => (
-            <Card project={item} key={item.title}/>
+            <Card project={item} key={item.title} setIsModalOpen={setIsModalOpen}/>
           ))}
         </m.div>
 
       </div>
+      
+      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
 
     </section>
   )

@@ -1,3 +1,4 @@
+import { SetStateAction } from "react"
 import "./card.css"
 import { m } from 'framer-motion'
 
@@ -7,9 +8,10 @@ type CardProps = {
     description: string
     technologies: string[]
   }
+  setIsModalOpen: React.Dispatch<SetStateAction<boolean>>
 }
 
-export default function Card({project}: CardProps) {
+export default function Card({ project, setIsModalOpen }: CardProps) {
 
   return (
     <m.div
@@ -24,7 +26,7 @@ export default function Card({project}: CardProps) {
         <h2>{project.title}</h2>
         <p>{project.description}</p>
         <div className="buttons-container">
-          <button onClick={() => alert('Kliknieto')}>Learn more</button>
+          <button onClick={() => setIsModalOpen(true)}>Learn more</button>
           <button>Visit website</button>
         </div>
       </div>
