@@ -11,7 +11,7 @@ type ModalProps = {
 }
 
 export default function Modal({ isModalOpen, setIsModalOpen, project } : ModalProps) {
-  
+
   return (
     <AnimatePresence>
       {isModalOpen && (
@@ -37,6 +37,20 @@ export default function Modal({ isModalOpen, setIsModalOpen, project } : ModalPr
             </div>
 
             <p>{project.description}</p>
+
+            {project.adminCreds && (
+              <div className='admin-creds'>
+                <big>Administrator Credentials</big>
+                <ul>
+                  {project.adminCreds.map((item) => (
+                    <li key={Object.keys(item)[0]}>
+                      <span>{Object.keys(item)[0]}: </span>
+                      <span>{Object.values(item)[0]}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             
             <div className="navigation">
               <a href={project.sourceCode} target='_blank'>Source code</a>
