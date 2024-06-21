@@ -1,4 +1,7 @@
 import { Project } from "../types/types";
+import Sklepico from "../assets/Sklepico.png"
+import UnderhillHall from "../assets/Underhill Hall.png"
+import HealThyBody from "../assets/HealThyBody.png"
 
 const PROJECTS: Project[] = [
   {
@@ -6,6 +9,7 @@ const PROJECTS: Project[] = [
     category: "solo",
     description: "A one-to-many platform for e-commerce. Allows a single administrator to display goods for multiple users to purchase. Built with MERN stack (Mongo, Express, React, Node). Includes custom user authentication, payment processing with Stripe Checkout and a dedicated admin platform for CRUD operations.",
     adminCreds: [{ login: 'admin@admin.com' }, { password: 'Test12345!' }],
+    image: Sklepico,
     link: 'https://sklepico.onrender.com/',
     sourceCode: 'https://github.com/HoffmanSan/MERN-app',
     technologies: {
@@ -27,6 +31,7 @@ const PROJECTS: Project[] = [
     title: "Underhill Hall",
     category: "solo",
     description: "Web application for an event hosting enterprise (it also happens to be the very first website I made). Contains four different room layouts - each with custom seat booking functionality, payment processing using Stripe Payment Element, e-mail contact with the staff / booking confirmation to user mailbox with EmailJS. Administrator powers (events editing/adding/deleting) via Firebase GUI. Image generation with Hotpot, image storage with Firestore.",
+    image: UnderhillHall,
     link: 'https://underhill-hall.onrender.com/',
     sourceCode: 'https://github.com/HoffmanSan/Underhill-Hall',
     technologies: {
@@ -48,6 +53,7 @@ const PROJECTS: Project[] = [
     title: "HealThyBody",
     category: "shared",
     description: "An application for calories monitoring and weight maintaining. Includes custom user authentication and a database of products shared across all users. Allows to modify calorie intake data for each day separately and add new goals without overriding previous ones. Image storage with Cloudinary. This project was made in cooperation with Bartosz Gortych.",
+    image: HealThyBody,
     link: 'https://twogordev-first-app.onrender.com/',
     sourceCode: 'https://github.com/TwoGorDev/TwoGorDev-First-App',
     technologies: {

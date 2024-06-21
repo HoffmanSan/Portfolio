@@ -1,5 +1,6 @@
 import './about.css'
 import Hexagon from "../hexagon/Hexagon"
+import Profilowe from '../../assets/profilowe.png';
 
 export default function About() {
 
@@ -10,7 +11,7 @@ export default function About() {
 
         <div className="personal-info">
           <Hexagon>
-            <img src="src\assets\profilowe.png" alt="moja morda" />
+            <img src={Profilowe} alt="moja morda" />
           </Hexagon>
 
           <p>I spent a significant part of my waking life in front of a computer - ever since my parents brought home our very first PC. What started as a couple-hours-a-day getaway from reality soon transformed into a full blown addiction (or a habit if you will). Dozen years, couple courses, two jobs and one degree later and I'm here, making my way into this community that I've always considered myself a part of, but this time - professionally. I've chosen WebDev to be my field of expertise but I'm fascinated by pretty much everything technology related and often find myself looking up subjects that have nothing or little to do with actual web development. When it comes to creating websites I prefer building elaborate functional applications rather than eye-candy landing pages.</p>
