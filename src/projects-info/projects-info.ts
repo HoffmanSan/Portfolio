@@ -47,7 +47,7 @@ const PROJECTS: Project[] = [
   {
     title: "HealThyBody",
     category: "shared",
-    description: "An application for calories monitoring and weight maintaining.",
+    description: "An application for calories monitoring and weight maintaining. Includes custom user authentication and a database of products shared across all users. Allows to modify calorie intake data for each day separately and add new goals without overriding previous ones. Image storage with Cloudinary. This project was made in cooperation with Bartosz Gortych.",
     link: 'https://twogordev-first-app.onrender.com/',
     sourceCode: 'https://github.com/TwoGorDev/TwoGorDev-First-App',
     technologies: {
