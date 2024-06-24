@@ -1,28 +1,73 @@
 import './about.css'
 import Hexagon from "../hexagon/Hexagon"
+import { useEffect, useRef } from 'react';
+import { m, useAnimation, useInView } from 'framer-motion'
 import Profilowe from '../../assets/profilowe.png';
 
 export default function About() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+  const controls = useAnimation()
+  const contentVariants = {
+    hidden: { opacity: 0, y: 75 },
+    visible: { opacity: 1, y: 0 }
+  }
+  const headerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 }
+  }
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start('visible')
+    }
+  }, [isInView])
 
   return (
     <section id="about">
       <div className="about-content" >
-        <h3>A BIT ABOUT ME</h3>
+        <m.h3
+          variants={headerVariants}
+          initial="hidden"
+          transition={{ duration: 0.5, delay: 0.2 }}
+          animate={controls}
+        >
+          A BIT ABOUT ME
+        </m.h3>
 
-        <div className="personal-info">
+        <m.div
+          className="personal-info hexagon-profile"
+          variants={contentVariants}
+          initial="hidden"
+          transition={{ duration: 0.5, delay: 0.4 }}
+          animate={controls}
+        >
           <Hexagon>
-            <img src={Profilowe} alt="moja morda" />
+            <img src={Profilowe} alt="author's face" />
           </Hexagon>
 
           <p>I spent a significant part of my waking life in front of a computer - ever since my parents brought home our very first PC. What started as a couple-hours-a-day getaway from reality soon transformed into a full blown addiction (or a habit if you will). Dozen years, couple courses, two jobs and one degree later and I'm here, making my way into this community that I've always considered myself a part of, but this time - professionally. I've chosen WebDev to be my field of expertise but I'm fascinated by pretty much everything technology related and often find myself looking up subjects that have nothing or little to do with actual web development. When it comes to creating websites I prefer building elaborate functional applications rather than eye-candy landing pages.</p>
-        </div>
+        </m.div>
 
-        <h3>MY HOBBIES</h3>
+        <m.h3
+          variants={headerVariants}
+          initial="hidden"
+          transition={{ duration: 0.5, delay: 0.8 }}
+          animate={controls}
+        >
+          MY HOBBIES
+        </m.h3>
 
-        <div className="hexagon-row">
+        <div ref={ref} className="hexagon-row">
 
-        <div className="hexagon-column">
-            <Hexagon>
+        <m.div
+          className="hexagon-column"
+          variants={contentVariants}
+          initial="hidden"
+          transition={{ duration: 0.5, delay: 1.1 }}
+          animate={controls}
+        >
+            <Hexagon className='hexagon-hobbies'>
               <div className="mobile-carousel">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M64 208c0 7.8 4.4 18.7 17.1 30.3C126.5 214.1 188.9 200 256 200s129.5 14.1 174.9 38.3C443.6 226.7 448 215.8 448 208c0-12.3-10.8-32-47.9-50.6C364.9 139.8 314 128 256 128s-108.9 11.8-144.1 29.4C74.8 176 64 195.7 64 208zm192 40c-47 0-89.3 7.6-122.9 19.7C166.3 280.2 208.8 288 256 288s89.7-7.8 122.9-20.3C345.3 255.6 303 248 256 248zM0 208c0-49.6 39.4-85.8 83.3-107.8C129.1 77.3 190.3 64 256 64s126.9 13.3 172.7 36.2c43.9 22 83.3 58.2 83.3 107.8v96c0 49.6-39.4 85.8-83.3 107.8C382.9 434.7 321.7 448 256 448s-126.9-13.3-172.7-36.2C39.4 389.8 0 353.6 0 304V208z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#ffffff" d="M0 80v48c0 17.7 14.3 32 32 32H48 96V80c0-26.5-21.5-48-48-48S0 53.5 0 80zM112 32c10 13.4 16 30 16 48V384c0 35.3 28.7 64 64 64s64-28.7 64-64v-5.3c0-32.4 26.3-58.7 58.7-58.7H480V128c0-53-43-96-96-96H112zM464 480c61.9 0 112-50.1 112-112c0-8.8-7.2-16-16-16H314.7c-14.7 0-26.7 11.9-26.7 26.7V384c0 53-43 96-96 96H368h96z"/></svg>
@@ -31,23 +76,35 @@ export default function About() {
             </Hexagon>
             <h4>Fantasy</h4>
             <p>swords / spells / beasts - if it has all three I'm hooked, I've always been fond of everything fantasy-related and it hasn't changed to this day, with Tolkien's universe as my go-to</p>
-          </div>
+          </m.div>
 
-          <div className="hexagon-column">
-            <Hexagon>
+          <m.div
+            className="hexagon-column"
+            variants={contentVariants}
+            initial="hidden"
+            transition={{ duration: 0.5, delay: 1.4 }}
+            animate={controls}
+          >
+            <Hexagon className='hexagon-hobbies'>
             <svg className="gear-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="#ffffff" d="M192 64C86 64 0 150 0 256S86 448 192 448H448c106 0 192-86 192-192s-86-192-192-192H192zM496 168a40 40 0 1 1 0 80 40 40 0 1 1 0-80zM392 304a40 40 0 1 1 80 0 40 40 0 1 1 -80 0zM168 200c0-13.3 10.7-24 24-24s24 10.7 24 24v32h32c13.3 0 24 10.7 24 24s-10.7 24-24 24H216v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h32V200z"/></svg>
             </Hexagon>
             <h4>Gaming</h4>
             <p>no matter if they're video or board games - I enjoy great stories with complicated characters, facing challenging campaigns, cooperating towards common goal or competing against skilled opponents</p>
-          </div>
+          </m.div>
 
-          <div className="hexagon-column">
-            <Hexagon>
+          <m.div
+            className="hexagon-column"
+            variants={contentVariants}
+            initial="hidden"
+            transition={{ duration: 0.5, delay: 1.7 }}
+            animate={controls}
+          >
+            <Hexagon className='hexagon-hobbies'>
               <svg className="seo-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="#ffffff" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
             </Hexagon>
             <h4>Coding</h4>
             <p>my love for coding started at my first job where I'd spent hours on creating multi-line excel functions, I got hooked in before I knew it and so today I'm still writing code only a bit more complicated</p>
-          </div>
+          </m.div>
 
         </div>
         

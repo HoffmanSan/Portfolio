@@ -15,7 +15,7 @@
     border-radius: 0.75rem;
     border: solid 3px transparent;
     outline: none;
-    transition: all 400ms;
+    transition: scale 400ms, background-color 400ms, border 400ms, color 400ms;
   }
 
   & textarea {
@@ -43,7 +43,7 @@
     color: white;
     outline: none;
     background-color: var(--color-primary);
-    transition: all 400ms;
+    transition: background-color 400ms, scale 400ms, box-shadow 400ms;
     /* fixing sharpness on scaling */
     -webkit-backface-visibility: hidden; 
     backface-visibility: hidden;

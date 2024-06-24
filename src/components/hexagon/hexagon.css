@@ -11,7 +11,7 @@
   transition: all 400ms;
 }
 
-.hexagon::before {
+.hexagon-hobbies::before {
   position: absolute;
   content: '';
   top: 0;
@@ -24,6 +24,6 @@
   opacity: 0;
 }
 
-.hexagon:hover::before {
+.hexagon-hobbies:hover::before {
   opacity: 1;
 }

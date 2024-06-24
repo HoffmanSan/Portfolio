@@ -1,49 +1,42 @@
 import "./projects.css"
 import Card from "../card/Card"
-import { useState } from "react"
-import { m } from 'framer-motion'
 import PROJECTS from "../../projects-info/projects-info"
+import { useRef, useEffect } from 'react'
+import { m, useInView, useAnimation } from "framer-motion"
 
 export default function Projects(){
-  const [category, setCategory] = useState('all')
-  const [filteredProjects, setFilteredProjects] = useState(PROJECTS);
+  const ref = useRef(null)
+  const isInView = useInView(ref)
+  const controls = useAnimation()
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start('visible')
+    }
+  }, [isInView])
 
   return (
     <section id="projects" >
       <div className="projects-content">
 
-        <h3>PROJECTS</h3>
+        <m.h3 
+          ref={ref}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 }
+          }}
+          initial='hidden'
+          animate={controls}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          PROJECTS
+        </m.h3>
 
-        <div className="projects-nav">
-
-          <button
-            onClick={() => {setCategory('all'); setFilteredProjects(PROJECTS)}} 
-            className={`${category === 'all' && 'active'}`}
-          >
-            all
-          </button>
-
-          <button
-            onClick={() => {setCategory('shared'); setFilteredProjects(PROJECTS.filter(item => item.category === 'shared'))}}
-            className={`${category === 'shared' && 'active'}`}
-          >
-            shared
-          </button>
-
-          <button 
-            onClick={() => {setCategory('solo'); setFilteredProjects(PROJECTS.filter(item => item.category === 'solo'))}} 
-            className={`${category === 'solo' && 'active'}`}
-          >
-            solo
-          </button>
-
-        </div>
-
-        <m.div layout className="cards-container">
-          {filteredProjects.map(item => (
-            <Card project={item} key={item.title} />
+        <div className="cards-container">
+          {PROJECTS.map((item, index) => (
+            <Card project={item} key={item.title} index={index}/>
           ))}
-        </m.div>
+        </div>
 
       </div>
       

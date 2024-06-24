@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-
+import { m } from 'framer-motion'
 import "./professionHeader.css"
 
 export default function ProfessionHeader() {
@@ -33,15 +33,20 @@ export default function ProfessionHeader() {
   }
 
   useEffect(() => {
-    stringHackerEffect()
+    setTimeout(() => stringHackerEffect(), 2000)
   }, [])
 
   return (
-    <h2 className="profession">
+    <m.h2
+      className="profession"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 2 }}
+    >
       {"I'm a "} 
-      <span onMouseEnter={stringHackerEffect}>
+      <span>
         {content}
       </span>
-    </h2>
+    </m.h2>
   )
 }

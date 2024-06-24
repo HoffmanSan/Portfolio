@@ -1,6 +1,7 @@
 import './form.css'
 import emailjs from '@emailjs/browser';
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import { m, useInView, useAnimation } from 'framer-motion';
 
 export default function Form() {
   const [name, setName] = useState('');
@@ -11,6 +12,14 @@ export default function Form() {
   const [isSending, setIsSending] = useState(false);
   const form = useRef<HTMLFormElement>(null);
   const submitButton = useRef<HTMLButtonElement>(null)
+  const isInView = useInView(form, { once: true })
+  const controls = useAnimation()
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start('visible')
+    }
+  }, [isInView])
 
   const sendEmail = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -75,32 +84,64 @@ export default function Form() {
 
   return (
     <form ref={form} onSubmit={sendEmail} className="contact-form">
-      <input
+      <m.input
         type='text' 
         name='user_name'
         placeholder='Your name...'
         value={name}
         onChange={(e) => setName(e.target.value)}
+        variants={{
+          hidden: { opacity: 0, x: -75 },
+          visible: {opacity: 1, x: 0 }
+        }}
+        initial='hidden'
+        animate={controls}
+        transition={{ duration: 0.5, delay: 0.4 }}
       />
       
-      <input 
+      <m.input 
         type='text' 
         name='user_email'
         placeholder='Your e-mail...'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        variants={{
+          hidden: { opacity: 0, x: 75 },
+          visible: {opacity: 1, x: 0 }
+        }}
+        initial='hidden'
+        animate={controls}
+        transition={{ duration: 0.7, delay: 0.4 }}
       />
 
-      <textarea 
+      <m.textarea 
         name='message' 
         placeholder='Your message...'
         value={message}
         onChange={(e) => setMessage(e.target.value)}
+        variants={{
+          hidden: { opacity: 0, x: -75 },
+          visible: {opacity: 1, x: 0 }
+        }}
+        initial='hidden'
+        animate={controls}
+        transition={{ duration: 0.7, delay: 0.4 }}
       />
 
-      <button type='submit' id="submit-btn" ref={submitButton}>
+      <m.button
+        type='submit'
+        id="submit-btn"
+        ref={submitButton}
+        variants={{
+          hidden: { opacity: 0, y: 75 },
+          visible: {opacity: 1, y: 0 }
+        }}
+        initial='hidden'
+        animate={controls}
+        transition={{ duration: 0.7, delay: 0.4 }}
+      >
         {isSending ? 'Sending...' : 'Send'}
-      </button>
+      </m.button>
 
       {error && (
         <p className="contact-error">{error}</p>

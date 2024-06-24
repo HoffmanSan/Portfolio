@@ -20,9 +20,15 @@ export default function Modal({ isModalOpen, setIsModalOpen, project } : ModalPr
           key="modal"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          transition={{ duration: 0.35 }}
           exit={{ opacity: 0 }}
         >
-          <div className='modal-content'>
+          <m.div
+            className='modal-content'
+            initial={{ opacity: 0, y: 75 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+          >
 
             <button onClick={() => setIsModalOpen(false)} className='close-button'>X</button>
 
@@ -57,7 +63,7 @@ export default function Modal({ isModalOpen, setIsModalOpen, project } : ModalPr
               <a href={project.link} target='_blank'>View website</a>
             </div>
             
-          </div>
+          </m.div>
         </m.div>
       )}
     </AnimatePresence>
