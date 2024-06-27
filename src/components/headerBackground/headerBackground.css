@@ -1,13 +1,12 @@
-
 .header-background {
   position: sticky;
   top: 0;
 	left: 0;
   overflow-x: hidden;
+  z-index: 1;
 }
 
 .icon-row {
-  z-index: 3;
   display: flex;
   overflow: hidden;
 }
@@ -15,7 +14,6 @@
 .header-background svg {
   color: var(--color-secondary);
   font-size: 3em;
-  z-index: 3;
   transition: all 1s;
   opacity: 0.5;
   overflow: hidden;

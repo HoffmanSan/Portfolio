@@ -130,6 +130,7 @@ export default function Form() {
 
       <m.button
         type='submit'
+        className="button-type-A"
         id="submit-btn"
         ref={submitButton}
         variants={{

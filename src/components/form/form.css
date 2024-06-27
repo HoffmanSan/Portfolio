@@ -34,30 +34,6 @@
     color: white;
   }
 
-  & button {
-    font-size: 1.1em;
-    margin-top: 15px;
-    cursor: pointer;
-    padding: 10px 20px;
-    border: 2px solid #04C2C9;
-    color: white;
-    outline: none;
-    background-color: var(--color-primary);
-    transition: background-color 400ms, scale 400ms, box-shadow 400ms;
-    /* fixing sharpness on scaling */
-    -webkit-backface-visibility: hidden; 
-    backface-visibility: hidden;
-    -ms-transform: translateZ(0); /* IE 9 */
-    -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
-    transform: translateZ(0);
-  }
-
-  & button:hover, button:focus {
-    scale: 1.10;
-    box-shadow: 0 0 40px #04C2C9;
-    background-color: #04C2C9;
-  }
-
   & input:focus::placeholder, textarea:focus::placeholder {
     color: transparent;
   }

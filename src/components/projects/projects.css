@@ -16,8 +16,16 @@
   gap: 1em;
 }
 
+.cards-container > div {
+  width: 32%;
+}
+
 @media (max-width: 800px) {
   .projects-content {
+    width: 90%;
+  }
+
+  .cards-container > div {
     width: 90%;
   }
 }

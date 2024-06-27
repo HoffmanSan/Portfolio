@@ -23,13 +23,6 @@
   cursor: pointer;
 }
 
-.navbar a {
-  font-size: 1.25rem;
-  color: white;
-  transition: all 500ms;
-  padding: 15px 15px;
-}
-
 .navbar li:hover {
   background-color: var(--color-primary);
 }
