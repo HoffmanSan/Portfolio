@@ -9,7 +9,7 @@
 
 .about-content {
   width: 70%;
-  margin: 5px auto;
+  margin: 2rem auto;
 }
 
 .personal-info {
@@ -19,15 +19,18 @@
   align-items: center;
 }
 
-.personal-info > .hexagon {
+.personal-info  .hexagon {
   height: 22em;
   width: 22em;
   margin: 10px 0;
 }
 
-.personal-info p {
-  text-align: center;
-
+.personal-info .bar-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .personal-info img {

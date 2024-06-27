@@ -4,6 +4,7 @@
   border-radius: 1rem;
   height: 70vh;
   width: 32%;
+  transition: scale 400ms;
 
   & * {
     transition: all 400ms;
@@ -64,6 +65,10 @@
     box-shadow: 0 0 60px #04C2C9;
     background-color: #04C2C9;
   }
+}
+
+.card:hover {
+  scale: 1.05
 }
 
 .card:hover > img {

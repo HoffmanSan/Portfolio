@@ -3,18 +3,19 @@ import Hexagon from "../hexagon/Hexagon"
 import { useEffect, useRef } from 'react';
 import { m, useAnimation, useInView } from 'framer-motion'
 import Profilowe from '../../assets/profilowe.png';
+import Bar from '../bar/Bar';
 
 export default function About() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
   const controls = useAnimation()
   const contentVariants = {
-    hidden: { opacity: 0, y: 75 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 75, scale: 0.5 },
+    visible: { opacity: 1, y: 0, scale: 1 }
   }
   const headerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 }
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: { opacity: 1, scale: 1 }
   }
 
   useEffect(() => {
@@ -29,30 +30,55 @@ export default function About() {
         <m.h3
           variants={headerVariants}
           initial="hidden"
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.75, delay: 0.5 }}
           animate={controls}
         >
           A BIT ABOUT ME
         </m.h3>
 
-        <m.div
+        <div
           className="personal-info hexagon-profile"
-          variants={contentVariants}
-          initial="hidden"
-          transition={{ duration: 0.5, delay: 0.4 }}
-          animate={controls}
         >
-          <Hexagon>
-            <img src={Profilowe} alt="author's face" />
-          </Hexagon>
+          <m.div
+            variants={{
+              hidden: { opacity: 0, x: -75, scale: 0.5 },
+              visible: { opacity: 1, x: 0, scale: 1 }
+            }}
+            initial="hidden"
+            transition={{ duration: 0.75, delay: 1.25 }}
+            animate={controls}
+          >
+            <Hexagon>
+              <img src={Profilowe} alt="author's face" />
+            </Hexagon>
+          </m.div>
 
-          <p>I spent a significant part of my waking life in front of a computer - ever since my parents brought home our very first PC. What started as a couple-hours-a-day getaway from reality soon transformed into a full blown addiction (or a habit if you will). Dozen years, couple courses, two jobs and one degree later and I'm here, making my way into this community that I've always considered myself a part of, but this time - professionally. I've chosen WebDev to be my field of expertise but I'm fascinated by pretty much everything technology related and often find myself looking up subjects that have nothing or little to do with actual web development. When it comes to creating websites I prefer building elaborate functional applications rather than eye-candy landing pages.</p>
-        </m.div>
+          <m.div
+            className="bar-container"
+            variants={{
+              hidden: { opacity: 0, x: 75, scale: 0.5 },
+              visible: { opacity: 1, x: 0, scale: 1 }
+            }}
+            initial="hidden"
+            transition={{ duration: 0.75, delay: 2 }}
+            animate={controls}
+          >
+            <Bar tag='HTML' progress={90} delay={2500}/>
+            <Bar tag='CSS' progress={90} delay={2600}/>
+            <Bar tag='JavaScript' progress={90} delay={2700}/>
+            <Bar tag='React' progress={90} delay={2800}/>
+            <Bar tag='Node' progress={70} delay={2900}/>
+            <Bar tag='MongoDB' progress={50} delay={3000}/>
+            <Bar tag='PostgreSQL' progress={50} delay={3100}/>
+            <Bar tag='Firebase' progress={50} delay={3200}/>
+            
+          </m.div>
+        </div>
 
         <m.h3
           variants={headerVariants}
           initial="hidden"
-          transition={{ duration: 0.5, delay: 0.8 }}
+          transition={{ duration: 0.75, delay: 2.5 }}
           animate={controls}
         >
           MY HOBBIES
@@ -64,7 +90,7 @@ export default function About() {
           className="hexagon-column"
           variants={contentVariants}
           initial="hidden"
-          transition={{ duration: 0.5, delay: 1.1 }}
+          transition={{ duration: 0.75, delay: 3 }}
           animate={controls}
         >
             <Hexagon className='hexagon-hobbies'>
@@ -82,7 +108,7 @@ export default function About() {
             className="hexagon-column"
             variants={contentVariants}
             initial="hidden"
-            transition={{ duration: 0.5, delay: 1.4 }}
+            transition={{ duration: 0.75, delay: 3.5 }}
             animate={controls}
           >
             <Hexagon className='hexagon-hobbies'>
@@ -96,7 +122,7 @@ export default function About() {
             className="hexagon-column"
             variants={contentVariants}
             initial="hidden"
-            transition={{ duration: 0.5, delay: 1.7 }}
+            transition={{ duration: 0.75, delay: 4 }}
             animate={controls}
           >
             <Hexagon className='hexagon-hobbies'>
