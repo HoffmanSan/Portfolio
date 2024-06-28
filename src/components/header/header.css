@@ -16,16 +16,24 @@
 }
 
 .header-content  h1, .header-content  h2 {
-  letter-spacing: -1px;
+  font-weight: 700;
   width: fit-content;
   text-align: center;
 }
 
 span {
+  font-weight: 700;
   color: #04C2C9;
-  font-family: "Roboto Mono", monospace;
 }
 
 .header-buttons-container {
   margin-top: 1.5rem;
+
+  & a {
+    background-color: transparent;
+  }
+
+  & a:hover {
+    background-color: #04C2C9;
+  }
 }

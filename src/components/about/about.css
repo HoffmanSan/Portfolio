@@ -4,12 +4,17 @@
   z-index: 3;
   position: relative;
   width: 100%;
-  padding-top: 4em;
+  padding-top: 3rem;
 }
 
 .about-content {
   width: 70%;
   margin: 2rem auto;
+}
+
+.about-content h3 {
+  font-weight: 700;
+  margin: 1rem auto;
 }
 
 .personal-info {
@@ -44,7 +49,7 @@
 }
 
 .hexagon-column {
-  margin: 20px 5px;
+  margin: 0 5px;
   padding: 0 20px;
   display: flex;
   flex-direction: column;

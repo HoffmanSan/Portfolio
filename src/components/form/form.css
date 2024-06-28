@@ -1,8 +1,8 @@
 .contact-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  margin-top: 1rem;
 
   & input, textarea {
     min-width: 60%;

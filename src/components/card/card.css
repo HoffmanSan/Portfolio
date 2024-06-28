@@ -46,6 +46,7 @@
   
   & h2 {
     transform: translateY(-10em);
+    font-weight: 700;
   }
 
   & p {

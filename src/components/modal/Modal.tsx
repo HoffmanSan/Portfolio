@@ -3,14 +3,13 @@ import './modal.css'
 import { AnimatePresence, m } from 'framer-motion'
 import { Project } from '../../types/types'
 
-// local types
-type ModalProps = {
+type Props = {
   isModalOpen: boolean
   setIsModalOpen: React.Dispatch<SetStateAction<boolean>>
   project: Project
 }
 
-export default function Modal({ isModalOpen, setIsModalOpen, project } : ModalProps) {
+export default function Modal({ isModalOpen, setIsModalOpen, project } : Props) {
 
   return (
     <AnimatePresence>

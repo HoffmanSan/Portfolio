@@ -6,18 +6,21 @@ import Projects from "./components/projects/Projects"
 import Contact from './components/contact/Contact'
 import { LazyMotion, domMax } from 'framer-motion'
 import Footer from './components/footer/Footer'
+import { TemplateContextProvider } from './contexts/TemplateContext'
 
 function App() {
 
   return (
-    <LazyMotion features={domMax}>
-      <Header />
-      <Navbar />
-      <About />
-      <Projects />
-      <Contact />
-      <Footer />
-    </LazyMotion>
+    <TemplateContextProvider>
+      <LazyMotion features={domMax}>
+        <Header />
+        <Navbar />
+        <About />
+        <Projects />
+        <Contact />
+        <Footer />
+      </LazyMotion>
+    </TemplateContextProvider>
   )
 }
 

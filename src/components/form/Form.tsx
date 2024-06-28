@@ -1,25 +1,23 @@
 import './form.css'
 import emailjs from '@emailjs/browser';
-import { useRef, useState, useEffect } from 'react'
-import { m, useInView, useAnimation } from 'framer-motion';
+import { useContext, useRef, useState } from 'react'
+import AnimationWrapper from '../animationWrapper/AnimationWrapper';
+import { TemplateContext } from '../../contexts/TemplateContext';
 
 export default function Form() {
+  const { template: { contact : { form } } } = useContext(TemplateContext)
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [isSending, setIsSending] = useState(false);
-  const form = useRef<HTMLFormElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const submitButton = useRef<HTMLButtonElement>(null)
-  const isInView = useInView(form, { once: true })
-  const controls = useAnimation()
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start('visible')
-    }
-  }, [isInView])
+  const hidden = { opacity: 0, y: 75 }
+  const visible = { opacity: 1, y: 0 }
+  const transition = { type: 'spring', stifness: 200, duration: 0.75 }
+  const style = { width: '100%', display: 'flex', justifyContent: 'center' }
 
   const sendEmail = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -33,19 +31,19 @@ export default function Form() {
 
 
     if (!name || !email) {
-      setError('please fill out contact data so I can get back to you')
+      setError(form.errors.noContact)
       submitButton?.current?.blur()
       return
     }
 
     if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
-      setError("looks like there's an error in your email, might want to check that out")
+      setError(form.errors.emailError)
       submitButton?.current?.blur()
       return
     }
 
     if (!message) {
-      setError("got something you'd like to discuss? write it down in the message box and hit 'send'")
+      setError(form.errors.noMessage)
       submitButton?.current?.blur()
       return
     }
@@ -62,20 +60,20 @@ export default function Form() {
       .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        form.current || '',
+        formRef.current || '',
         { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
       )
       .then(
         () => {
           console.log('SUCCESS!')
           resetForm()
-          setSuccess("thank you for your message, I'll get back to you as soon as possible")
+          setSuccess(form.success)
           setTimeout(() => setSuccess(''), 5000)
         },
         (error) => {
           console.log('FAILED...', error)
           setIsSending(false)
-          setError('whoops - something went wrong, please try again')
+          setError(form.errors.failed)
         },
       );
 
@@ -83,66 +81,46 @@ export default function Form() {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail} className="contact-form">
-      <m.input
-        type='text' 
-        name='user_name'
-        placeholder='Your name...'
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        variants={{
-          hidden: { opacity: 0, x: -75 },
-          visible: {opacity: 1, x: 0 }
-        }}
-        initial='hidden'
-        animate={controls}
-        transition={{ duration: 0.5, delay: 0.4 }}
-      />
+    <form ref={formRef} onSubmit={sendEmail} className="contact-form">
+      <AnimationWrapper hidden={hidden} visible={visible} transition={{ ...transition, delay: 0.7 }} style={style}>
+        <input
+          type='text' 
+          name='user_name'
+          placeholder={form.name}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </AnimationWrapper>
       
-      <m.input 
-        type='text' 
-        name='user_email'
-        placeholder='Your e-mail...'
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        variants={{
-          hidden: { opacity: 0, x: 75 },
-          visible: {opacity: 1, x: 0 }
-        }}
-        initial='hidden'
-        animate={controls}
-        transition={{ duration: 0.7, delay: 0.4 }}
-      />
+      <AnimationWrapper hidden={hidden} visible={visible} transition={{ ...transition, delay: 0.9 }} style={style}>
+        <input 
+          type='text' 
+          name='user_email'
+          placeholder={form.email}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </AnimationWrapper>
 
-      <m.textarea 
-        name='message' 
-        placeholder='Your message...'
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        variants={{
-          hidden: { opacity: 0, x: -75 },
-          visible: {opacity: 1, x: 0 }
-        }}
-        initial='hidden'
-        animate={controls}
-        transition={{ duration: 0.7, delay: 0.4 }}
-      />
+      <AnimationWrapper hidden={hidden} visible={visible} transition={{ ...transition, delay: 1.1 }} style={style}>
+        <textarea 
+          name='message' 
+          placeholder={form.message}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+      </AnimationWrapper>
 
-      <m.button
-        type='submit'
-        className="button-type-A"
-        id="submit-btn"
-        ref={submitButton}
-        variants={{
-          hidden: { opacity: 0, y: 75 },
-          visible: {opacity: 1, y: 0 }
-        }}
-        initial='hidden'
-        animate={controls}
-        transition={{ duration: 0.7, delay: 0.4 }}
-      >
-        {isSending ? 'Sending...' : 'Send'}
-      </m.button>
+      <AnimationWrapper hidden={hidden} visible={visible} transition={{ ...transition, delay: 1.3 }} style={style}>
+        <button
+          type='submit'
+          className="button-type-A"
+          id="submit-btn"
+          ref={submitButton}
+        >
+          {isSending ? form.button.sending : form.button.send}
+        </button>
+      </AnimationWrapper>
 
       {error && (
         <p className="contact-error">{error}</p>

@@ -7,6 +7,7 @@
 
 #contact h3 {
   color: #fff;
+  font-weight: 700;
 }
 
 .contact-content {
@@ -35,7 +36,7 @@
   z-index: -2;
 }
 
-.circles li{
+.circles li {
   position: absolute;
   display: block;
   list-style: none;

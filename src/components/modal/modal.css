@@ -13,23 +13,26 @@
 
 .modal-content {
   position: relative;
-  padding: min(4em, 7vw, 7vh);
-  padding-top: 0;
+  padding: min(3em, 7vw, 7vh);
   border-radius: 1rem;
   width: clamp(50%, 600px, 80%);
   background-color: white;
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: fit-content;
   
   & * {
     transition: all 400ms;
   }
 
   & .close-button {
+    border: 2px solid #04C2C9;
+    cursor: pointer;
     border-radius: 1rem;
+    margin-top: -2rem;
+    margin-right: -2rem;
     margin-left: auto;
-    margin-right: calc(min(4em, 7vw, 7vh) * -1 + 4px);
     padding: 10px 15px;
     background-color: transparent;
     color: #04C2C9;
@@ -49,6 +52,8 @@
 
   & h4 {
     color: var(--color-quintenary);
+    margin-top: -1rem;
+    font-weight: 700;
     text-align: center;
   }
 
@@ -64,7 +69,7 @@
       margin: 0.25em;
       text-decoration: none;
       color: var(--color-quintenary);
-      border: 1px solid var(--color-quintenary);
+      border: 2px solid var(--color-quintenary);
       border-radius: 0.5em;
     }
 
@@ -83,15 +88,18 @@
 
     & big {
       color: var(--color-quintenary);
+      font-weight: 700;
     }
 
     & ul {
       list-style: none;
+      display: flex;
 
       & li {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin: 0 1rem;
 
         & :nth-child(1) {
           color: var(--color-quintenary);
@@ -108,7 +116,7 @@
   }
 
   & .navigation {
-    padding-top: 1em;
+    margin-top: 1rem;
 
     & a {
       text-decoration: none;
