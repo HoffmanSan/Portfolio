@@ -16,7 +16,7 @@ export default function Contact() {
   const hidden = { opacity: 0, y: 75 }
   const visible = { opacity: 1, y: 0 }
   const transition = { type: 'spring', stifness: 200, duration: 0.5, delay: 0.5 }
-  const isOnMobile = window.screen.width < 370
+  const isOnMobile = window.screen.width < 600
 
   return (
     <section id="contact" className='flex-column-center' style={isOnMobile ? { minHeight: '100vh' } : {}}>

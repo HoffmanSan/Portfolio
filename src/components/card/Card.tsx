@@ -18,7 +18,7 @@ type Props = {
 export default function Card({ project, index } : Props) {
   const { template: { projects: { card } } } = useContext(TemplateContext) as TemplateContextType
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const isOnMobile = window.screen.width < 370
+  const isOnMobile = window.screen.width < 600
 
   return (
     <AnimationWrapper hidden={{ opacity: 0, y: 100 }} visible={{ opacity: 1, y: 0 }} transition={{ type: 'spring', stifness: 300, duration: 1, delay: isOnMobile ? 0.2 : 0.5 + 0.2 * (index + 1) }}>

@@ -14,7 +14,7 @@ import { TemplateContextType } from '../../types/types';
 
 export default function About() {
   const { template: { about } } = useContext(TemplateContext) as TemplateContextType
-  const isOnMobile = window.screen.width < 370
+  const isOnMobile = window.screen.width < 600
   const hidden = { opacity: 0, scale: 0.5 }
   const visible = { opacity: 1, scale: 1 }
   const transition = { type: 'spring', stifness: 100, duration: 0.75, delay: isOnMobile ? 0.2 : 0.5 }

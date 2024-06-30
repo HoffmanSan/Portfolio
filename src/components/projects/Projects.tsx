@@ -12,7 +12,7 @@ import { TemplateContextType } from "../../types/types"
 
 export default function Projects(){
   const {template: { projects }} = useContext(TemplateContext) as TemplateContextType
-  const isOnMobile = window.screen.width < 370
+  const isOnMobile = window.screen.width < 600
 
   return (
     <section id="projects" >

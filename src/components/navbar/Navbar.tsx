@@ -10,7 +10,7 @@ import { TemplateContext } from '../../contexts/TemplateContext'
 import { TemplateContextType } from '../../types/types'
 
 export default function Navbar() {
-  const [isOpenOnMobileDevice] = useState(window.screen.width < 370 ? true : false)
+  const [isOpenOnMobileDevice] = useState(window.screen.width < 600 ? true : false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { template: { navbar } } = useContext(TemplateContext) as TemplateContextType
   const searchParams = new URLSearchParams(window.location.search)
