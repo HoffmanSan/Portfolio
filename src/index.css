@@ -76,7 +76,7 @@ h4 {
   width: fit-content;
   color: rgb(var(--color-quinary));
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.25rem !important;
   transition: color 400ms;
 }
 
