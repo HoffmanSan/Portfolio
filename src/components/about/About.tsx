@@ -1,19 +1,26 @@
+// styles
 import './about.css'
+
+// components
 import Hexagon from "../hexagon/Hexagon"
-import Profilowe from '../../assets/profilowe.png';
 import Bar from '../bar/Bar';
 import AnimationWrapper from '../animationWrapper/AnimationWrapper';
+
+// others
+import Profilowe from '../../assets/profilowe.png';
 import { useContext } from 'react';
 import { TemplateContext } from '../../contexts/TemplateContext';
+import { TemplateContextType } from '../../types/types';
 
 export default function About() {
-  const { template: { about } } = useContext(TemplateContext)
+  const { template: { about } } = useContext(TemplateContext) as TemplateContextType
+  const isOnMobile = window.screen.width < 370
   const hidden = { opacity: 0, scale: 0.5 }
   const visible = { opacity: 1, scale: 1 }
-  const transition = { type: 'spring', stifness: 100, duration: 0.75, delay: 0.5 }
+  const transition = { type: 'spring', stifness: 100, duration: 0.75, delay: isOnMobile ? 0.2 : 0.5 }
 
   return (
-    <section id="about">
+    <section id="about" className='flex-column-center'>
       <div className="about-content" >
         <AnimationWrapper hidden={hidden} visible={visible} transition={transition}>
           <h3>{about.headingOne}</h3>
@@ -22,64 +29,60 @@ export default function About() {
 
         <div className="personal-info">
           <AnimationWrapper hidden={hidden} visible={visible} transition={transition}>
-            <Hexagon>
+            <Hexagon className='flex-column-center'>
               <img src={Profilowe} alt="author's face" />
             </Hexagon>
+            <p>{about.bio}</p>
           </AnimationWrapper>
 
           <AnimationWrapper hidden={hidden} visible={visible} transition={transition} style={{ width: '100%', height: '100%' }}>
             <div className="bar-container">
-              <Bar tag='HTML' progress={90} delay={800}/>
-              <Bar tag='CSS' progress={90} delay={900}/>
-              <Bar tag='JavaScript' progress={90} delay={1000}/>
-              <Bar tag='React' progress={90} delay={1100}/>
-              <Bar tag='Node' progress={70} delay={1200}/>
-              <Bar tag='MongoDB' progress={50} delay={1300}/>
-              <Bar tag='PostgreSQL' progress={50} delay={1400}/>
-              <Bar tag='Firebase' progress={50} delay={1500}/>
+              <Bar tag='HTML' progress={90} delay={isOnMobile ? 300 : 800}/>
+              <Bar tag='CSS' progress={90} delay={isOnMobile ? 400 : 900}/>
+              <Bar tag='JavaScript' progress={90} delay={isOnMobile ? 500 : 1000}/>
+              <Bar tag='React' progress={90} delay={isOnMobile ? 600 : 1100}/>
+              <Bar tag='Node' progress={70} delay={isOnMobile ? 700 : 1200}/>
+              <Bar tag='MongoDB' progress={55} delay={isOnMobile ? 800 : 1300}/>
+              <Bar tag='PostgreSQL' progress={55} delay={isOnMobile ? 900 : 1400}/>
+              <Bar tag='Firebase' progress={55} delay={isOnMobile ? 1000 : 1500}/>
             </div>
           </AnimationWrapper>
-        </div>
-
-        <AnimationWrapper hidden={hidden} visible={visible} transition={transition}>
-          <h3>{about.headingTwo}</h3>
-        </AnimationWrapper>
-        
+        </div>  
 
         <div className="hexagon-row">
 
           <AnimationWrapper hidden={hidden} visible={visible} transition={transition}>
             <div className="hexagon-column">
-              <Hexagon className='hexagon-hobbies'>
-                <div className="fantasy-carousel">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M64 208c0 7.8 4.4 18.7 17.1 30.3C126.5 214.1 188.9 200 256 200s129.5 14.1 174.9 38.3C443.6 226.7 448 215.8 448 208c0-12.3-10.8-32-47.9-50.6C364.9 139.8 314 128 256 128s-108.9 11.8-144.1 29.4C74.8 176 64 195.7 64 208zm192 40c-47 0-89.3 7.6-122.9 19.7C166.3 280.2 208.8 288 256 288s89.7-7.8 122.9-20.3C345.3 255.6 303 248 256 248zM0 208c0-49.6 39.4-85.8 83.3-107.8C129.1 77.3 190.3 64 256 64s126.9 13.3 172.7 36.2c43.9 22 83.3 58.2 83.3 107.8v96c0 49.6-39.4 85.8-83.3 107.8C382.9 434.7 321.7 448 256 448s-126.9-13.3-172.7-36.2C39.4 389.8 0 353.6 0 304V208z"/></svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#ffffff" d="M0 80v48c0 17.7 14.3 32 32 32H48 96V80c0-26.5-21.5-48-48-48S0 53.5 0 80zM112 32c10 13.4 16 30 16 48V384c0 35.3 28.7 64 64 64s64-28.7 64-64v-5.3c0-32.4 26.3-58.7 58.7-58.7H480V128c0-53-43-96-96-96H112zM464 480c61.9 0 112-50.1 112-112c0-8.8-7.2-16-16-16H314.7c-14.7 0-26.7 11.9-26.7 26.7V384c0 53-43 96-96 96H368h96z"/></svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="#ffffff" d="M352 124.5l-51.9-13c-6.5-1.6-11.3-7.1-12-13.8s2.8-13.1 8.7-16.1l40.8-20.4L294.4 28.8c-5.5-4.1-7.8-11.3-5.6-17.9S297.1 0 304 0H416h32 16c30.2 0 58.7 14.2 76.8 38.4l57.6 76.8c6.2 8.3 9.6 18.4 9.6 28.8c0 26.5-21.5 48-48 48H538.5c-17 0-33.3-6.7-45.3-18.7L480 160H448v21.5c0 24.8 12.8 47.9 33.8 61.1l106.6 66.6c32.1 20.1 51.6 55.2 51.6 93.1C640 462.9 590.9 512 530.2 512H496 432 32.3c-3.3 0-6.6-.4-9.6-1.4C13.5 507.8 6 501 2.4 492.1C1 488.7 .2 485.2 0 481.4c-.2-3.7 .3-7.3 1.3-10.7c2.8-9.2 9.6-16.7 18.6-20.4c3-1.2 6.2-2 9.5-2.2L433.3 412c8.3-.7 14.7-7.7 14.7-16.1c0-4.3-1.7-8.4-4.7-11.4l-44.4-44.4c-30-30-46.9-70.7-46.9-113.1V181.5v-57zM512 72.3c0-.1 0-.2 0-.3s0-.2 0-.3v.6zm-1.3 7.4L464.3 68.1c-.2 1.3-.3 2.6-.3 3.9c0 13.3 10.7 24 24 24c10.6 0 19.5-6.8 22.7-16.3zM130.9 116.5c16.3-14.5 40.4-16.2 58.5-4.1l130.6 87V227c0 32.8 8.4 64.8 24 93H112c-6.7 0-12.7-4.2-15-10.4s-.5-13.3 4.6-17.7L171 232.3 18.4 255.8c-7 1.1-13.9-2.6-16.9-9s-1.5-14.1 3.8-18.8L130.9 116.5z"/></svg>
+              <Hexagon className='hexagon-priorities'>
+                <div className="responsive-carousel">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="#ffffff" d="M16 64C16 28.7 44.7 0 80 0H304c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H80c-35.3 0-64-28.7-64-64V64zM144 448c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16s-7.2-16-16-16H160c-8.8 0-16 7.2-16 16zM304 64H80V384H304V64z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#ffffff" d="M0 64C0 28.7 28.7 0 64 0H384c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM256 448a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM384 64H64V384H384V64z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#ffffff" d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64H240l-10.7 32H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H346.7L336 416H512c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM512 64V288H64V64H512z"/></svg>
                 </div>
               </Hexagon>
-              <h4>{about.hobbies[0].title}</h4>
-              <p>{about.hobbies[0].description}</p>
+              <h4>{about.priorities[0].title}</h4>
+              <p>{about.priorities[0].description}</p>
             </div>
           </AnimationWrapper>
           
 
           <AnimationWrapper hidden={hidden} visible={visible} transition={transition}>
             <div className="hexagon-column">
-              <Hexagon className='hexagon-hobbies'>
-              <svg className="gear-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="#ffffff" d="M192 64C86 64 0 150 0 256S86 448 192 448H448c106 0 192-86 192-192s-86-192-192-192H192zM496 168a40 40 0 1 1 0 80 40 40 0 1 1 0-80zM392 304a40 40 0 1 1 80 0 40 40 0 1 1 -80 0zM168 200c0-13.3 10.7-24 24-24s24 10.7 24 24v32h32c13.3 0 24 10.7 24 24s-10.7 24-24 24H216v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h32V200z"/></svg>
+              <Hexagon className='hexagon-priorities'>
+                <svg className='gear-logo' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/></svg>
               </Hexagon>
-              <h4>{about.hobbies[1].title}</h4>
-              <p>{about.hobbies[1].description}</p>
+              <h4>{about.priorities[1].title}</h4>
+              <p>{about.priorities[1].description}</p>
             </div>
           </AnimationWrapper>
 
           <AnimationWrapper hidden={hidden} visible={visible} transition={transition}>
             <div className="hexagon-column">
-              <Hexagon className='hexagon-hobbies'>
-                <svg className="seo-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="#ffffff" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+              <Hexagon className='hexagon-priorities'>
+                <svg className='seo-logo' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 512"><path fill="#ffffff" d="M220.6 130.3l-67.2 28.2V43.2L98.7 233.5l54.7-24.2v130.3l67.2-209.3zm-83.2-96.7l-1.3 4.7-15.2 52.9C80.6 106.7 52 145.8 52 191.5c0 52.3 34.3 95.9 83.4 105.5v53.6C57.5 340.1 0 272.4 0 191.6c0-80.5 59.8-147.2 137.4-158zm311.4 447.2c-11.2 11.2-23.1 12.3-28.6 10.5-5.4-1.8-27.1-19.9-60.4-44.4-33.3-24.6-33.6-35.7-43-56.7-9.4-20.9-30.4-42.6-57.5-52.4l-9.7-14.7c-24.7 16.9-53 26.9-81.3 28.7l2.1-6.6 15.9-49.5c46.5-11.9 80.9-54 80.9-104.2 0-54.5-38.4-102.1-96-107.1V32.3C254.4 37.4 320 106.8 320 191.6c0 33.6-11.2 64.7-29 90.4l14.6 9.6c9.8 27.1 31.5 48 52.4 57.4s32.2 9.7 56.8 43c24.6 33.2 42.7 54.9 44.5 60.3s.7 17.3-10.5 28.5zm-9.9-17.9c0-4.4-3.6-8-8-8s-8 3.6-8 8 3.6 8 8 8 8-3.6 8-8z"/></svg>
               </Hexagon>
-              <h4>{about.hobbies[2].title}</h4>
-              <p>{about.hobbies[2].description}</p>
+              <h4>{about.priorities[2].title}</h4>
+              <p>{about.priorities[2].description}</p>
             </div>
           </AnimationWrapper>
 

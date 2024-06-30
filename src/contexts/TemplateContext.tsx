@@ -1,26 +1,18 @@
+// others
 import { createContext, useEffect, useState } from "react"
 import TemplatePL from '../templates/polish'
 import TemplateEN from '../templates/english'
+import { Template } from "../types/types"
 
 type Props = {
   children: React.ReactNode
 }
 
-export const TemplateContext = createContext<any | undefined>(undefined)
+export const TemplateContext = createContext<{template: Template} | undefined>(undefined)
 
 export const TemplateContextProvider = ({ children } : Props) => {
   const [template, setTemplate] = useState(TemplateEN)
   const sp = new URLSearchParams(window.location.search)
-
-  const changeToEN = () => {
-    history.pushState('', '', "?lang=EN");
-    setTemplate(TemplateEN)
-  }
-
-  const changeToPL = () => {
-    history.pushState('', '', "?lang=PL");
-    setTemplate(TemplatePL)
-  }
   
   useEffect(() => {
     if (sp.get('lang') === 'PL') {
@@ -29,7 +21,7 @@ export const TemplateContextProvider = ({ children } : Props) => {
   }, [])
 
   return (
-    <TemplateContext.Provider value={{template, changeToEN, changeToPL}}>
+    <TemplateContext.Provider value={{template}}>
       {children}
     </TemplateContext.Provider>
   )

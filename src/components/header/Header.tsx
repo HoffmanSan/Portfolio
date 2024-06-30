@@ -1,12 +1,18 @@
+// styles
 import './header.css'
+
+// components
 import HeaderBackground from '../headerBackground/HeaderBackground'
 import Link from '../link/Link'
 import AnimationWrapper from '../animationWrapper/AnimationWrapper'
+
+// others
 import { useContext } from 'react'
 import { TemplateContext } from '../../contexts/TemplateContext'
+import { TemplateContextType } from '../../types/types'
 
 export default function Header() {
-  const { template: { header } } = useContext(TemplateContext)
+  const { template: { header } } = useContext(TemplateContext)  as TemplateContextType
   const hidden = { opacity: 0 }
   const visible = { opacity: 1, zIndex: 3 }
   const transition = { duration: 1, delay: 0.5 }

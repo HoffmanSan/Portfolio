@@ -7,15 +7,15 @@ const template = {
   header: {
     headingOne: 'Hi, my name is ',
     headingTwo: "I'm a web developer",
-    buttons: ['About Me', 'Projects', 'Contact Me']
+    buttons: ['About', 'Projects', 'Contact']
   },
   about: {
-    headingOne: 'ABOUT ME',
-    headingTwo: 'MY HOBBIES',
-    hobbies: [
-      { title: 'Fantasy', description: "swords / spells / beasts - if it has all three I'm hooked, I've always been fond of everything fantasy-related and it hasn't changed to this day, with Tolkien's universe as my go-to" },
-      { title: 'Gaming', description: "no matter if they're video or board games - I enjoy great stories with complicated characters, facing challenging campaigns, cooperating towards common goal or competing against skilled opponents" },
-      { title: 'Coding', description: "my love for coding started at my first job where I'd spent hours on creating multi-line excel functions, I got hooked in before I knew it and so today I'm still writing code only a bit more complicated" }
+    headingOne: 'ABOUT',
+    bio: "I'm a self-taught web developer with a passion for functionality-rich web applications - check out my work below.",
+    priorities: [
+      { title: 'Responsive', description: "I make my layouts in a way that allows them to be viewed on devices of various sizes" },
+      { title: 'Functional', description: "I create static websites as well as user friendly interactive applications" },
+      { title: 'SEO-compatible', description: "I make sure that potential users can easily find your website with search engine optimization" }
     ]
   },
   projects: {
@@ -81,7 +81,15 @@ const template = {
           Cloudinary: 'https://cloudinary.com/'
         }
       }
-    ]
+    ],
+    card: {
+      buttons: ['Learn more', 'Visit website']
+    },
+    modal: {
+      headingOne: 'Technologies used in creation of this project:',
+      adminCreds: 'Administrator Credentials',
+      buttons: ['Source code', 'View website']
+    }
   },
   contact: {
     headingOne: 'CONTACT ME',
@@ -96,7 +104,7 @@ const template = {
       },
       errors: {
         noContact: 'please fill out contact data so I can get back to you',
-        emailError: "your e-mail doesn't look right, might want to check that out",
+        emailError: "your email address doesn't look right, might want to check that out",
         noMessage: "got something you'd like to discuss? write it down in the message box and hit 'send'",
         failed: 'whoops - something went wrong, please try again'
       },

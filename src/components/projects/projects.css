@@ -1,6 +1,6 @@
 #projects {
   width: 100%;
-  padding-top: 4em;
+  padding: 6em 0;
 }
 
 .projects-content {
@@ -17,6 +17,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 0 auto;
   gap: 2em;
 }
 
@@ -24,12 +25,12 @@
   width: 31%;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   .projects-content {
-    width: 90%;
+    width: 100%;
   }
 
   .cards-container > div {
-    width: 90%;
+    width: 85%;
   }
 }

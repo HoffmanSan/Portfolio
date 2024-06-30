@@ -1,4 +1,7 @@
+// styles
 import "./headerBackground.css"
+
+// others
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faShieldHalved, faGear, faCode, faCrown,

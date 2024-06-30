@@ -1,15 +1,21 @@
+// styles
 import './form.css'
+
+// components
+import AnimationWrapper from '../animationWrapper/AnimationWrapper';
+
+// others
 import emailjs from '@emailjs/browser';
 import { useContext, useRef, useState } from 'react'
-import AnimationWrapper from '../animationWrapper/AnimationWrapper';
 import { TemplateContext } from '../../contexts/TemplateContext';
+import { TemplateContextType } from '../../types/types';
 
 export default function Form() {
-  const { template: { contact : { form } } } = useContext(TemplateContext)
+  const { template: { contact : { form } } } = useContext(TemplateContext) as TemplateContextType
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState(' ');
   const [success, setSuccess] = useState('');
   const [isSending, setIsSending] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);

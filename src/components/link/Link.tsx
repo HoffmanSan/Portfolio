@@ -1,16 +1,19 @@
+// others
 import { Link as ScrollLink } from "react-scroll";
 
 type Props = {
   to: string
   content: string
   className?: string
+  setIsMobileMenuOpen?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function Link({ to, content, className } : Props) {
+export default function Link({ to, content, className, setIsMobileMenuOpen } : Props) {
 
   const active = {
-    backgroundColor: '#04C2C9'
+    backgroundColor: 'rgb(var(--color-quinary))'
   }
+
 
   return (
     <ScrollLink
@@ -20,7 +23,7 @@ export default function Link({ to, content, className } : Props) {
       spy={true}
       smooth={true}
       duration={750}
-
+      onClick={() => {setIsMobileMenuOpen && setIsMobileMenuOpen(false)}}
     >
       {content}
     </ScrollLink>

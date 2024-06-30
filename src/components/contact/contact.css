@@ -1,8 +1,9 @@
+@import '../../assets/animations.css';
+
 #contact {
   z-index: 3;
   position: relative;
   width: 100%;
-  padding-top: 5em;
 }
 
 #contact h3 {
@@ -12,7 +13,7 @@
 
 .contact-content {
   width: 70%;
-  margin: 0 auto;
+  margin-top: -7.5%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -43,7 +44,7 @@
   width: 20px;
   height: 20px;
   background: rgba(255, 255, 255, 0.2);
-  animation: animate 25s linear infinite;
+  animation: rise-and-spin 25s linear infinite;
   bottom: -150px;
 }
 
@@ -123,18 +124,13 @@
   animation-duration: 11s;
 }
 
-
-
-@keyframes animate {
-  0%{
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-    border-radius: 0;
+@media (max-width: 600px) {
+  .contact-content {
+    width: 90%;
   }
 
-  100%{
-    transform: translateY(-1000px) rotate(720deg);
-    opacity: 0;
-    border-radius: 50%;
+  #contact h3 {
+    color: #fff;
+    font-weight: 700;
   }
 }

@@ -3,13 +3,14 @@
   flex-direction: column;
   align-items: center;
   margin-top: 1rem;
+  width: 100%;
 
   & input, textarea {
     min-width: 60%;
     width: 60%;
     max-width: 60%;
     padding: 10px;
-    font-size: 1.1em;
+    font-size: 12pt;
     text-align: center;
     margin: 0.5em;
     border-radius: 0.75rem;
@@ -21,13 +22,14 @@
   & textarea {
     min-height: 20vh;
     max-height: 30vh;
+    height: 30vh;
   }
 
   & input:focus, textarea:focus {
-    border: solid 3px aqua;
+    border: solid 3px rgb(var(--color-quinary));
     scale: 1.05;
     color: white;
-    background-color: var(--color-primary);
+    background-color: rgb(var(--color-primary));
   }
 
   & input:focus::placeholder, textarea:focus::placeholder {
@@ -40,13 +42,28 @@
 
   & .contact-error {
     color: white;
+    text-align: center;
     margin: 20px 0;
     font-size: 1.1em;
   }
 
   & .contact-success {
     color: lime;
+    text-align: center;
     margin: 20px 0;
     font-size: 1.1em;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-form {
+    & input, textarea {
+      font-size: 9pt;
+      width: 100%;
+      max-width: 100%
+    }
+    & .contact-error, .contact-success {
+      font-size: 9pt !important;
+    }
   }
 }

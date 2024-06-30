@@ -12,7 +12,7 @@
 }
 
 .header-background svg {
-  color: var(--color-secondary);
+  color: rgb(var(--color-secondary));
   font-size: 3em;
   transition: all 1s;
   opacity: 0.5;
@@ -20,8 +20,12 @@
 }
 
 .header-background svg:hover {
-  color: #04C2C9;
-  filter: drop-shadow(2px 2px 4px #04C2C9);
+  color: rgb(var(--color-quinary));
+  filter: drop-shadow(2px 2px 4px rgb(var(--color-quinary)));
   opacity: 1;
   transition: 0s;
+}
+
+@media (max-width: 600px) {
+
 }

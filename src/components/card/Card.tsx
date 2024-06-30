@@ -1,8 +1,14 @@
-import { useState } from "react"
+// styles
 import "./card.css"
-import Modal from "../modal/Modal"
-import { Project } from "../../types/types"
+
+// components
 import AnimationWrapper from "../animationWrapper/AnimationWrapper"
+import Modal from "../modal/Modal"
+
+// others
+import { useContext, useState } from "react"
+import { Project, TemplateContextType } from "../../types/types"
+import { TemplateContext } from "../../contexts/TemplateContext"
 
 type Props = {
   project: Project
@@ -10,10 +16,12 @@ type Props = {
 }
 
 export default function Card({ project, index } : Props) {
+  const { template: { projects: { card } } } = useContext(TemplateContext) as TemplateContextType
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const isOnMobile = window.screen.width < 370
 
   return (
-    <AnimationWrapper hidden={{ opacity: 0, y: 100 }} visible={{ opacity: 1, y: 0 }} transition={{ type: 'spring', stifness: 300, duration: 1, delay: 0.5 + 0.2 * (index + 1) }}>
+    <AnimationWrapper hidden={{ opacity: 0, y: 100 }} visible={{ opacity: 1, y: 0 }} transition={{ type: 'spring', stifness: 300, duration: 1, delay: isOnMobile ? 0.2 : 0.5 + 0.2 * (index + 1) }}>
       <div className="card">
         <img src={project.image} alt={project.title}/>
         <div className="card-details">
@@ -23,11 +31,11 @@ export default function Card({ project, index } : Props) {
           <div className="buttons-container">
 
             <button className="button-type-A" onClick={() => setIsModalOpen(true)}>
-              Learn more
+              {card.buttons[0]}
             </button>
 
             <button className="button-type-A" onClick={() => window.open(`${project.link}`, '_blank')}>
-              Visit website
+              {card.buttons[1]}
             </button>
 
           </div>

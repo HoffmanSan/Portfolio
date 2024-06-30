@@ -9,16 +9,16 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #04ACB2;
+  background-color: rgb(var(--color-quinary));
   height: 100%;
-  transition: 1s 0.25ms width ease-in-out;
+  transition: 1s 0.25ms width ease-in-out, background-color 400ms;
 }
 
 .bar-tag {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #04C2C9;
+  background-color: var(--color-quinary-darkest);
   color: white;
   font-weight: 600;
   display: grid;
@@ -26,4 +26,16 @@
   height: 100%;
   width: 100px;
   padding: 0 1rem;
+  transition: background-color 400ms;
+}
+
+@media (max-width: 600px) {
+  .bar-wrapper {
+    height: 1rem;
+  }
+
+  .bar-tag {
+    font-size: 8pt;
+    width: 60px;
+  }
 }

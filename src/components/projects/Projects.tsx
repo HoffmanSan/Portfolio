@@ -1,17 +1,24 @@
+// styles
 import "./projects.css"
+
+// components
 import Card from "../card/Card"
 import AnimationWrapper from "../animationWrapper/AnimationWrapper"
+
+// others
 import { useContext } from "react"
 import { TemplateContext } from "../../contexts/TemplateContext"
+import { TemplateContextType } from "../../types/types"
 
 export default function Projects(){
-  const {template: { projects }} = useContext(TemplateContext)
+  const {template: { projects }} = useContext(TemplateContext) as TemplateContextType
+  const isOnMobile = window.screen.width < 370
 
   return (
     <section id="projects" >
       <div className="projects-content">
 
-        <AnimationWrapper hidden={{ opacity: 0, y: 50 }} visible={{ opacity: 1, y: 0 }} transition={{ type: 'spring', stifness: 200, duration: 1, delay: 0.5 }}>
+        <AnimationWrapper hidden={{ opacity: 0, y: 50 }} visible={{ opacity: 1, y: 0 }} transition={{ type: 'spring', stifness: 200, duration: 1, delay: isOnMobile ? 0 : 0.5 }}>
           <h3>{projects.headingOne}</h3>
         </AnimationWrapper>
 

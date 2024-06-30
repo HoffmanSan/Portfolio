@@ -9,12 +9,11 @@
 
 .about-content {
   width: 70%;
-  margin: 2rem auto;
+  height: 100%;
 }
 
 .about-content h3 {
-  font-weight: 700;
-  margin: 1rem auto;
+  padding-bottom: 2.5rem;
 }
 
 .personal-info {
@@ -25,9 +24,10 @@
 }
 
 .personal-info  .hexagon {
-  height: 22em;
-  width: 22em;
-  margin: 10px 0;
+  height: 18rem;
+  width: 18rem;
+  margin: 10px auto;
+  background-color: rgb(var(--color-senary));
 }
 
 .bar-container {
@@ -40,12 +40,21 @@
 .personal-info img {
   height: 100%;
   width: 100%;
+  z-index: 5;
   object-fit: fill;
+}
+
+.personal-info p {
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+  color: rgb(var(--color-octonary));
 }
 
 .hexagon-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin-top: 5rem;
 }
 
 .hexagon-column {
@@ -58,6 +67,7 @@
 
 .hexagon-column p {
   text-align: center;
+  color: rgb(var(--color-octonary));
 }
 
 /* LOGOS */
@@ -73,49 +83,72 @@
 }
 
 /* rwd */
-.fantasy-carousel {
+.responsive-carousel {
   display: grid;
   place-items: center;
   grid-template-columns: repeat(3, 150px);
 }
 
-.fantasy-carousel svg {
+.responsive-carousel svg {
   animation: carousel-horizontal 6000ms infinite;
 }
 
-.fantasy-carousel svg:nth-child(1) {
+.responsive-carousel svg:nth-child(1) {
   width: 2rem;
 }
 
-.fantasy-carousel svg:nth-child(2) {
-  width: 3.5rem;
+.responsive-carousel svg:nth-child(2) {
+  width: 2.5rem;
 }
 
-.fantasy-carousel svg:nth-child(3) {
-  width: 5rem;
+.responsive-carousel svg:nth-child(3) {
+  width: 4rem;
 }
+@media (min-width: 1080px) {
 
-/* aria */
-.aria-carousel {
-  display: grid;
-  place-items: center;
-  grid-template-rows: repeat(2, 150px);
-  overflow: hidden;
-  transform: translateY(-75px);
-}
-
-.aria-carousel svg {
-  animation: carousel-vertical 4000ms infinite;
 }
 
 @media (max-width: 600px) {
 
+  #about {
+    padding-top: 6rem;
+  }
+
   .about-content {
-    display: none;
+    width: 90%;
+  }
+
+  .about-content h3 {
+    padding-bottom: 0.5rem;
+  }
+
+  .personal-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.6fr;
+    justify-items: center;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .personal-info .hexagon {
+    height: 15rem;
+    width: 15rem;
+  }
+
+  .personal-info p {
+    text-align: center;
+    width: 90%;
+  }
+
+  .bar-container {
+    gap: 0.5em;
   }
   
   .hexagon-row {
+    margin: 2.5rem 0;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2rem;
   }
 }

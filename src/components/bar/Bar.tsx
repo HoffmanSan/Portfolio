@@ -1,8 +1,17 @@
-import { useEffect, useRef, useState } from 'react'
-import { useInView } from 'framer-motion';
+// styles
 import './bar.css'
 
-export default function Bar({ tag, progress, delay } : { tag: string, progress: number, delay: number }) {
+// others
+import { useEffect, useRef, useState } from 'react'
+import { useInView } from 'framer-motion';
+
+type Props = {
+  tag: string
+  progress: number
+  delay: number
+}
+
+export default function Bar({ tag, progress, delay } : Props) {
   const [percentage, setPercentage] = useState(0)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })

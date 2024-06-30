@@ -1,7 +1,11 @@
-import { SetStateAction } from 'react'
+// styles
 import './modal.css'
+
+// others
+import { SetStateAction, useContext } from 'react'
 import { AnimatePresence, m } from 'framer-motion'
-import { Project } from '../../types/types'
+import { Project, TemplateContextType } from '../../types/types'
+import { TemplateContext } from '../../contexts/TemplateContext'
 
 type Props = {
   isModalOpen: boolean
@@ -10,6 +14,7 @@ type Props = {
 }
 
 export default function Modal({ isModalOpen, setIsModalOpen, project } : Props) {
+  const { template: { projects: { modal } } } = useContext(TemplateContext) as TemplateContextType
 
   return (
     <AnimatePresence>
@@ -31,7 +36,7 @@ export default function Modal({ isModalOpen, setIsModalOpen, project } : Props) 
 
             <button onClick={() => setIsModalOpen(false)} className='close-button'>X</button>
 
-            <h4>Technologies used in creation of this project:</h4>
+            <h4>{modal.headingOne}</h4>
 
             <div className="technologies">
               {Object.entries(project.technologies).map(([tech, link]) => (
@@ -45,7 +50,7 @@ export default function Modal({ isModalOpen, setIsModalOpen, project } : Props) 
 
             {project.adminCreds && (
               <div className='admin-creds'>
-                <big>Administrator Credentials</big>
+                <big>{modal.adminCreds}</big>
                 <ul>
                   {project.adminCreds.map((item) => (
                     <li key={Object.keys(item)[0]}>
@@ -58,8 +63,8 @@ export default function Modal({ isModalOpen, setIsModalOpen, project } : Props) 
             )}
             
             <div className="navigation">
-              <a href={project.sourceCode} target='_blank'>Source code</a>
-              <a href={project.link} target='_blank'>View website</a>
+              <a href={project.sourceCode} target='_blank'>{modal.buttons[0]}</a>
+              <a href={project.link} target='_blank'>{modal.buttons[1]}</a>
             </div>
             
           </m.div>

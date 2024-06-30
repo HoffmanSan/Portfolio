@@ -11,11 +11,11 @@ const template = {
   },
   about: {
     headingOne: 'O MNIE',
-    headingTwo: 'MOJE HOBBY',
-    hobbies: [
-      { title: 'Fantastyka', description: 'miecze / zaklęcia / bestie - jeśli ma wszystkie trzy, to jestem uzależniony, zawsze lubiłem wszystko, co związane z fantastyką i nie zmieniło się to do dziś, najbardziej lubię uniwersum Tolkiena' },
-      { title: 'Gry', description: 'nieważne, czy są to gry wideo, czy planszowe - lubię świetne historie ze skomplikowanymi postaciami, stawianie czoła wymagającym kampaniom, współpracę na rzecz wspólnego celu lub rywalizację z utalentowanymi przeciwnikami' },
-      { title: 'Programowanie', description: 'moja miłość do kodowania zaczęła się w mojej pierwszej pracy, gdzie spędziłem godziny na tworzeniu wieloliniowych funkcji Excela, wciągnąłem się, zanim się zorientowałem, więc dzisiaj nadal piszę kod, tylko trochę bardziej skomplikowany' }
+    bio: 'Jestem programistą z pasją do tworzenia interaktywnych i dynamicznych aplikacji internetowych - zapoznaj się z moimi projektami poniżej.',
+    priorities: [
+      { title: 'Responsywne', description: 'moje modele są dostosowane do wyświetlania na urządzeniach różnej wielkości' },
+      { title: 'Funkcjonalne', description: 'tworzę zarówno statyczne witryny internetowe jak i rozbudowane interaktywne aplikacje' },
+      { title: 'Zgodne z SEO', description: 'dbam aby moje strony były łatwe do znalezienia przez wyszukiwarki internetowe' }
     ]
   },
   projects: {
@@ -23,7 +23,7 @@ const template = {
     projects: [
       {
         title: 'Sklepico',
-        description: 'Platforma typu „jeden do wielu” dla handlu elektronicznego. Umożliwia jednemu administratorowi wyświetlanie towarów w celu zakupu przez wielu użytkowników. Zbudowany ze stosu MERN (Mongo, Express, React, Node). Obejmuje niestandardowe uwierzytelnianie użytkowników, przetwarzanie płatności za pomocą Stripe Checkout i dedykowaną platformę administracyjną do operacji CRUD.',
+        description: 'Platforma do zakupów internetowych działająca na zasadzie relacji "jeden do wielu". Umożliwia jednemu administratorowi na wystawianie ofert produktów dostępnych dla wielu użytkowników. Zbudowany przy użyciu MERN stack (Mongo, Express, React, Node). Zawiera dedykowany system uwierzytelniania użytkowników, przetwarzanie płatności za pomocą Stripe Checkout oraz panel do przeprowadzania operacji CRUD dostępny wyłącznie dla administratora.',
         adminCreds: [{ login: 'admin@admin.com' }, { password: 'Test12345!' }],
         image: Sklepico,
         link: 'https://sklepico.onrender.com/',
@@ -45,7 +45,7 @@ const template = {
       },
       {
         title: 'Underhill Hall',
-        description: 'Aplikacja internetowa dla firmy zajmującej się organizacją wydarzeń (jest to także moja pierwsza strona internetowa, którą stworzyłem). Zawiera cztery różne układy pomieszczeń - każdy z niestandardową funkcją rezerwacji miejsc, przetwarzaniem płatności za pomocą elementu płatności Stripe, kontaktem e-mailowym z personelem / potwierdzeniem rezerwacji na skrzynkę pocztową użytkownika za pomocą EmailJS. Uprawnienia administratora (edycja/dodawanie/usuwanie zdarzeń) poprzez GUI Firebase. Generowanie obrazu za pomocą Hotpot, przechowywanie obrazu za pomocą Firestore.',
+        description: 'Aplikacja internetowa dla firmy zajmującej się organizacją wydarzeń (to również pierwsza strona jaką stworzyłem). Zawiera cztery różne układy pomieszczeń z możliwością rezerwacji miejsc, przetwarzaniem płatności za pomocą Stripe Payment Element, kontaktem mailowym z personelem oraz potwierdzenie rezerwacji na skrzynkę pocztową użytkownika za pomocą EmailJS. Uprawnienia administratora (edycja/dodawanie/usuwanie wydarzeń) poprzez Firebase GUI. Plakaty wydarzeń wygenerowane za pomocą Hotpot, przechowywanie obrazów przy użyciu Firestore.',
         image: UnderhillHall,
         link: 'https://underhill-hall.onrender.com/',
         sourceCode: 'https://github.com/HoffmanSan/Underhill-Hall',
@@ -66,7 +66,7 @@ const template = {
       },
       {
         title: 'HealThyBody',
-        description: 'Aplikacja do monitorowania kalorii i utrzymywania wagi. Obejmuje niestandardowe uwierzytelnianie użytkowników i bazę danych produktów współdzieloną przez wszystkich użytkowników. Pozwala modyfikować dane dotyczące spożycia kalorii dla każdego dnia z osobna i dodawać nowe cele bez zastępowania poprzednich. Przechowywanie zdjęć w Cloudinary. Projekt ten powstał we współpracy z Bartoszem Gortychem.',
+        description: 'Aplikacja do monitorowania spożycia kalorii - pomaga w kontrolowaniu masy ciała. Zawiera dedykowany system uwierzytelniania użytkowników i bazę danych produktów współdzieloną przez wszystkich użytkowników. Pozwala na obliczenie i wyznaczenie celów oraz dzienne monitorowanie spożycia kalorii i makroelementów poprzez uzupełnianie danych żywieniowych. Przechowywanie obrazów z Cloudinary. Projekt ten powstał we współpracy z Bartoszem Gortychem.',
         image: HealThyBody,
         link: 'https://twogordev-first-app.onrender.com/',
         sourceCode: 'https://github.com/TwoGorDev/TwoGorDev-First-App',
@@ -81,7 +81,15 @@ const template = {
           Cloudinary: 'https://cloudinary.com/'
         }
       },
-    ]
+    ],
+    card: {
+      buttons: ['Dowiedz się więcej', 'Odwiedź stronę']
+    },
+    modal: {
+      headingOne: 'Technologie wykorzystane do stworzenia tego projektu:',
+      adminCreds: 'Dane logowania administratora',
+      buttons: ['Kod źródłowy', 'Odwiedź stronę']
+    }
   },
   contact: {
     headingOne: 'NAPISZ DO MNIE',
@@ -96,7 +104,7 @@ const template = {
       },
       errors: {
         noContact: 'uzupełnij dane żebym mógł się z Tobą skontaktować',
-        emailError: 'coś jest nie tak z Twoim mailem, może to lepiej sprawdź',
+        emailError: 'coś jest nie tak z Twoim adresem e-mail, może lepiej to sprawdź',
         noMessage: "chcesz o czymś porozmawiać? uzupełnij pole 'Twoj wiadomość' i kliknij 'Wyślij'",
         failed: "hmmm, coś poszło nie tak - spróbuj jeszcze raz"
       },
@@ -109,7 +117,7 @@ const template = {
     anchors: [
       { name: 'LinkedIn', link: 'https://www.linkedin.com/in/maciej-gortych-4b5bb8272' },
       { name: 'GitHub', link: 'https://github.com/HoffmanSan' },
-      { name: 'Visit here', link: 'https://bartoszgortych.com' }
+      { name: 'Kliknij tutaj', link: 'https://bartoszgortych.com' }
     ]
   }
 }

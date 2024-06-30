@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=REM:wght@100..900&display=swap');
+
 :root {
-  --color-primary: #070F2B;
-  --color-secondary: #1B1A55;
-  --color-tertiary: #535C91;
-  --color-quaternary: #9290C3;
-  --color-quintenary: #04C2C9;
-  --s: 100px;  /* size  */
-  --m: 4px;    /* margin */
-  --f: calc(1.732 * var(--s) + 4 * var(--m)  - 1px);
+  --color-primary: 7, 15, 43;
+  --color-secondary: 27, 26, 85;
+  --color-tertiary: 83, 92, 145;
+  --color-quaternary: 146, 144, 195;
+  --color-quinary: 58, 134, 255;
+  --color-quinary-darkest: hsl(from rgb(var(--color-quinary)) h s calc(l - 10));
+  --color-senary: 255, 255, 255;
+  --color-septenary: 245, 245, 245;
+  --color-octonary: 64, 61, 57;
   
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,33 +17,67 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "REM", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#header {
+  height: 100vh;
+  width: 100vw;
+}
+
+#about {
+  min-height: 95vh;
+  background-color: rgb(var(--color-senary));
+}
+
+#projects {
+  min-height: 95vh;
+  background-color: rgb(var(--color-septenary));
+}
+
+#contact {
+  min-height: 100vh;
+  background-color: rgb(var(--color-tertiary));
+}
+
 body, html {
   overflow-x: clip;
 }
 
 h1 {
-  color: white;
+  color: rgb(var(--color-senary));
   font-size: 4.5rem;
-  font-family: "Roboto Mono", monospace;
+  transition: color 400ms;
 }
 
 h2 {
-  color: white;
+  color: rgb(var(--color-senary));
   font-size: 2.5rem;
+  transition: color 400ms;
 }
 
 h3 {
   margin: 0 auto;
   width: fit-content;
-  color: #444649;
+  color: rgb(var(--color-quinary));
   font-size: 2rem;
+  font-weight: 800;
+  transition: color 400ms;
 }
 
 h4 {
   margin: 5px 0;
   width: fit-content;
-  color: #616161;
+  color: rgb(var(--color-quinary));
+  font-weight: 600;
   font-size: 1.5rem;
+  transition: color 400ms;
 }
 
 a {
@@ -55,4 +92,27 @@ p {
   letter-spacing: .1rem;
   line-break: strict;
   font-size: 12pt;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  p, a, button, span {
+    font-size: 0.8rem !important;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  h4 {
+    font-size: 1.15rem !important;
+  }
 }

@@ -3,8 +3,8 @@
   overflow: hidden;
   border-radius: 1rem;
   height: 70vh;
-  width: 100% !important;
-  transition: scale 400ms;
+  width: 100%;
+  transition: scale 400ms, box-shadow 400ms, background 400ms;
 
   & * {
     transition: all 400ms;
@@ -36,7 +36,7 @@
   align-items: center;
   text-align: center;
   color: white;
-  background: linear-gradient(180deg, rgb(247, 244, 244), rgba(3, 151, 156, 0.505) 50%, rgba(27, 26, 85, 1));
+  background: linear-gradient(180deg, rgb(247, 244, 244), rgba(var(--color-quinary), 0.505) 50%, rgba(var(--color-primary), 1));
   /* fixing sharpness on scaling */
   -webkit-backface-visibility: hidden; 
   backface-visibility: hidden;
@@ -82,5 +82,11 @@
 
   & button {
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    box-shadow: 0 0 20px rgb(var(--color-quinary));
   }
 }

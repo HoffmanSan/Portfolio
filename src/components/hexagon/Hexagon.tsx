@@ -1,11 +1,12 @@
+// styles
 import './hexagon.css'
 
-type HexagonProps = {
+type Props = {
  children: JSX.Element
  className?: String
 }
 
-export default function Hexagon({children, className}: HexagonProps) {
+export default function Hexagon({children, className} : Props) {
   return (
     <div className={`hexagon ${className}`}>
       {children}

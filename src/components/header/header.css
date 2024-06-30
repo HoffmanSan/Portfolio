@@ -1,6 +1,6 @@
 .header {
   position: relative;
-  background-color: var(--color-primary);
+  background-color: rgb(var(--color-primary));
 }
 
 .header-content {
@@ -23,7 +23,8 @@
 
 span {
   font-weight: 700;
-  color: #04C2C9;
+  color: rgb(var(--color-quinary));
+  transition: color 400ms;
 }
 
 .header-buttons-container {
@@ -34,6 +35,12 @@ span {
   }
 
   & a:hover {
-    background-color: #04C2C9;
+    background-color: rgb(var(--color-quinary));
   }
 }
+
+@media (max-width: 600px) {
+  #header span {
+    font-size: 3.5rem !important;
+  }
+ }
